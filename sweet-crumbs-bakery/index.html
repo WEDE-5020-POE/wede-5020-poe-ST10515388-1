@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--
+    Sweet Crumbs Bakery - Homepage
+    File: index.html
+    Student: Lesego Siziba
+    Student Number: ST10515388
+    Module: WEDE5020 - Web Development (Introduction)
+    Part 1 - HTML Structure and Content
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page title - shown on the browser tab and in Google search results -->
+    <title>Sweet Crumbs Bakery | Fresh Artisan Bread and Pastries in Johannesburg</title>
+
+    <!-- Meta description - shown under the page title in Google search results -->
+    <meta name="description" content="Sweet Crumbs Bakery in Johannesburg offers freshly baked artisan breads, pastries and custom celebration cakes. Two locations in Melville and Sandton City." />
+
+    <!-- Keywords to help search engines understand what the page is about -->
+    <meta name="keywords" content="bakery Johannesburg, artisan bread, fresh pastries, custom cakes, Sweet Crumbs Bakery, Melville bakery" />
+
+    <!-- Link to the external CSS stylesheet - styling will be added in Part 2 -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ================================================
+         HEADER SECTION
+         Contains the bakery logo and the main navigation
+         menu that links to all pages on the site
+    ================================================ -->
+    <header>
+
+        <!-- Bakery logo and name -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo" />
+                <span>Sweet Crumbs Bakery</span>
+            </a>
+        </div>
+
+        <!-- Main navigation menu - links to all 5 pages -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- ================================================
+         MAIN CONTENT
+         This is where the main page content goes
+    ================================================ -->
+    <main>
+
+        <!-- Hero section - the big welcome banner at the top of the page -->
+        <section class="hero">
+            <img src="images/hero-bg.jpg" alt="Fresh bread and pastries laid out on a wooden table at Sweet Crumbs Bakery" />
+            <div class="hero-text">
+                <h1>Baked with Love, Served with Passion</h1>
+                <p>Fresh artisan breads, pastries and custom cakes baked every morning in Johannesburg.</p>
+                <!-- Call to action buttons to direct visitors to key pages -->
+                <a href="products.html">Shop Our Bakes</a>
+                <a href="enquiry.html">Place a Custom Order</a>
+            </div>
+        </section>
+
+        <!-- Features section - highlights 4 reasons to choose Sweet Crumbs -->
+        <section class="features">
+            <h2>Why Choose Sweet Crumbs?</h2>
+
+            <!-- Feature 1 -->
+            <article>
+                <img src="images/icon-fresh.png" alt="Wheat icon" />
+                <h3>Fresh Daily</h3>
+                <p>Everything is baked fresh every morning using locally sourced ingredients. We never use preservatives.</p>
+            </article>
+
+            <!-- Feature 2 -->
+            <article>
+                <img src="images/icon-cake.png" alt="Birthday cake icon" />
+                <h3>Custom Cakes</h3>
+                <p>We make fully customised celebration cakes for birthdays, weddings and any special occasion.</p>
+            </article>
+
+            <!-- Feature 3 -->
+            <article>
+                <img src="images/icon-delivery.png" alt="Delivery truck icon" />
+                <h3>Fast Delivery</h3>
+                <p>We deliver across Johannesburg and the greater Gauteng region within 24 hours of your order.</p>
+            </article>
+
+            <!-- Feature 4 -->
+            <article>
+                <img src="images/icon-leaf.png" alt="Leaf icon" />
+                <h3>Allergen Friendly</h3>
+                <p>We offer gluten-free and vegan options so that everyone can enjoy our bakes.</p>
+            </article>
+
+        </section>
+
+        <!-- Popular products section - shows 3 best-selling items -->
+        <section class="popular-products">
+            <h2>Our Customer Favourites</h2>
+            <p>Here are some of our most popular products baked fresh every day.</p>
+
+            <!-- Product card 1 -->
+            <article class="product-card">
+                <img src="images/sourdough.jpg" alt="Golden brown sourdough loaf with a crispy scored crust on a wooden board" />
+                <h3>Sourdough Loaf</h3>
+                <p>Our slow-fermented sourdough has a chewy crumb and a crackling crust. Baked fresh every morning.</p>
+                <p>Price: R65.00</p>
+                <a href="products.html">View Details</a>
+            </article>
+
+            <!-- Product card 2 -->
+            <article class="product-card">
+                <img src="images/croissant.jpg" alt="Freshly baked flaky golden butter croissants on a white plate" />
+                <h3>Butter Croissants</h3>
+                <p>Made with 27 layers of pure French butter pastry. Flaky, golden and absolutely delicious.</p>
+                <p>Price: R22.00 each</p>
+                <a href="products.html">View Details</a>
+            </article>
+
+            <!-- Product card 3 -->
+            <article class="product-card">
+                <img src="images/cake.jpg" alt="Three layer custom birthday cake with white frosting and fresh strawberries on top" />
+                <h3>Custom Layer Cake</h3>
+                <p>Fully customisable celebration cakes for any occasion. Choose your flavour, filling and design.</p>
+                <p>Price: From R350.00</p>
+                <a href="enquiry.html">Order Now</a>
+            </article>
+
+            <a href="products.html">View All Products</a>
+
+        </section>
+
+        <!-- Testimonials section - customer reviews -->
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+
+            <!-- Customer review 1 -->
+            <blockquote>
+                <p>"The sourdough is honestly the best I have had in Johannesburg. Crusty on the outside and soft on the inside. I buy two loaves every Saturday."</p>
+                <footer>- Thandi M., Sandton</footer>
+            </blockquote>
+
+            <!-- Customer review 2 -->
+            <blockquote>
+                <p>"Sweet Crumbs made my daughter's 5th birthday cake and it was absolutely perfect. It looked amazing and tasted even better. The whole family was impressed."</p>
+                <footer>- Ruan O., Roodepoort</footer>
+            </blockquote>
+
+            <!-- Customer review 3 -->
+            <blockquote>
+                <p>"As someone with a gluten intolerance I was so happy to find a bakery that makes gluten-free products that actually taste good. I don't feel like I'm missing out anymore."</p>
+                <footer>- Priya N., Midrand</footer>
+            </blockquote>
+
+        </section>
+
+        <!-- Call to action section - encourages visitors to get in touch -->
+        <section class="cta">
+            <h2>Ready to Place an Order?</h2>
+            <p>Drop us a message or send a custom order enquiry. We would love to bake something special for you.</p>
+            <a href="contact.html">Get in Touch</a>
+        </section>
+
+    </main>
+
+    <!-- ================================================
+         FOOTER SECTION
+         Contains quick links, contact info and opening hours
+    ================================================ -->
+    <footer>
+
+        <!-- Bakery branding column -->
+        <div>
+            <h3>Sweet Crumbs Bakery</h3>
+            <p>Handcrafted baked goods made with love in Johannesburg since 2015.</p>
+        </div>
+
+        <!-- Quick navigation links -->
+        <div>
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact information -->
+        <div>
+            <h4>Contact Us</h4>
+            <!-- address tag is used for contact details -->
+            <address>
+                <p>12 Baker Street, Melville, Johannesburg, 2092</p>
+                <p>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></p>
+                <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
+            </address>
+        </div>
+
+        <!-- Opening hours -->
+        <div>
+            <h4>Opening Hours</h4>
+            <ul>
+                <li>Monday to Friday: 06:00 - 18:00</li>
+                <li>Saturday: 07:00 - 15:00</li>
+                <li>Sunday: 08:00 - 13:00</li>
+            </ul>
+        </div>
+
+        <!-- Copyright notice -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
+            <p>Designed by Lesego Siziba | ST10515388 | WEDE5020</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

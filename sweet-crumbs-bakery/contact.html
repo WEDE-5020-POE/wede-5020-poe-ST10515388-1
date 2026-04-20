@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--
+    Sweet Crumbs Bakery - Contact Page
+    File: contact.html
+    Student: Lesego Siziba
+    Student Number: ST10515388
+    Module: WEDE5020 - Web Development (Introduction)
+    Part 1 - HTML Structure and Content
+
+    Note: This page has two store locations as required.
+    The interactive Leaflet.js map will be added in Part 3.
+    The form email compilation will also be added in Part 3.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title for the Contact page -->
+    <title>Contact Us | Sweet Crumbs Bakery - Melville and Sandton City Johannesburg</title>
+
+    <!-- Meta description for this page -->
+    <meta name="description" content="Contact Sweet Crumbs Bakery. Visit us in Melville or Sandton City, call us, or send a message through our contact form. We respond within 24 hours." />
+
+    <!-- Keywords for this page -->
+    <meta name="keywords" content="Sweet Crumbs Bakery contact, bakery Melville address, bakery Sandton City, Johannesburg bakery phone number" />
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ================================================
+         HEADER - same on every page
+    ================================================ -->
+    <header>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo" />
+                <span>Sweet Crumbs Bakery</span>
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- Page banner -->
+    <div class="page-banner">
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you. Get in touch through any of the options below.</p>
+    </div>
+
+    <!-- ================================================
+         MAIN CONTENT
+    ================================================ -->
+    <main>
+
+        <!-- Store locations section - shows both stores -->
+        <!-- The assignment requires more than one location on the contact page -->
+        <section class="locations">
+            <h2>Our Locations</h2>
+            <p>We have two locations in Johannesburg. Visit us or use the map below to get directions.</p>
+
+            <!-- Location 1: Melville Main Store -->
+            <article class="location-card">
+                <h3>Melville - Main Store</h3>
+                <address>
+                    <p>12 Baker Street<br />
+                    Melville<br />
+                    Johannesburg, 2092</p>
+                    <p>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></p>
+                    <p>Email: <a href="mailto:melville@sweetcrumbs.co.za">melville@sweetcrumbs.co.za</a></p>
+                </address>
+                <div class="location-hours">
+                    <h4>Opening Hours</h4>
+                    <ul>
+                        <li>Monday to Friday: 06:00 - 18:00</li>
+                        <li>Saturday: 07:00 - 15:00</li>
+                        <li>Sunday: 08:00 - 13:00</li>
+                    </ul>
+                </div>
+                <p>Parking available on Baker Street and surrounding roads.</p>
+            </article>
+
+            <!-- Location 2: Sandton City Kiosk -->
+            <article class="location-card">
+                <h3>Sandton City - Kiosk</h3>
+                <address>
+                    <p>Shop K14<br />
+                    Sandton City Shopping Centre<br />
+                    Sandton Drive, Sandton, 2196</p>
+                    <p>Phone: <a href="tel:+27115559876">+27 11 555 9876</a></p>
+                    <p>Email: <a href="mailto:sandton@sweetcrumbs.co.za">sandton@sweetcrumbs.co.za</a></p>
+                </address>
+                <div class="location-hours">
+                    <h4>Opening Hours</h4>
+                    <ul>
+                        <li>Monday to Saturday: 09:00 - 20:00</li>
+                        <li>Sunday: 10:00 - 18:00</li>
+                    </ul>
+                </div>
+                <p>Located on the ground floor near the food court. Ample parking in the Sandton City parking garage.</p>
+            </article>
+
+        </section>
+
+        <!-- Interactive map section -->
+        <!-- The Leaflet.js interactive map will be added here in Part 3 -->
+        <!-- For now this is a placeholder showing where the map will go -->
+        <section class="map-section">
+            <h2>Find Us on the Map</h2>
+            <p>Click on a tab to see the location of each store.</p>
+
+            <!-- Map tabs - JavaScript functionality will be added in Part 3 -->
+            <div class="map-tabs">
+                <button type="button">Melville Store</button>
+                <button type="button">Sandton City Kiosk</button>
+            </div>
+
+            <!-- Map container - Leaflet.js map will be loaded here in Part 3 -->
+            <div id="storeMap" style="width: 100%; height: 400px; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center;">
+                <p>Interactive map will be displayed here in Part 3</p>
+            </div>
+
+        </section>
+
+        <!-- Contact form section -->
+        <section class="contact-section">
+
+            <!-- ============================================
+                 CONTACT FORM
+                 Purpose: allows visitors to send a general
+                 message to the bakery. Different purpose
+                 from the enquiry form - this is for general
+                 messages, feedback and queries.
+                 Email compilation via JavaScript in Part 3.
+            ============================================ -->
+            <div class="contact-form-wrap">
+                <h2>Send Us a Message</h2>
+                <p>Have a general question, some feedback, or want to find out more about us? Fill in the form below and we will get back to you as soon as we can.</p>
+
+                <form action="#" method="post" id="contactForm">
+
+                    <!-- Personal information fieldset -->
+                    <fieldset>
+                        <legend>Your Information</legend>
+
+                        <!-- First and last name in a row -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label for="ctcFirstName">First Name *</label>
+                                <input type="text"
+                                       id="ctcFirstName"
+                                       name="firstName"
+                                       placeholder="First name"
+                                       required
+                                       minlength="2"
+                                       maxlength="50" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ctcLastName">Last Name *</label>
+                                <input type="text"
+                                       id="ctcLastName"
+                                       name="lastName"
+                                       placeholder="Last name"
+                                       required
+                                       minlength="2"
+                                       maxlength="50" />
+                            </div>
+
+                        </div>
+
+                        <!-- Email address -->
+                        <div class="form-group">
+                            <label for="ctcEmail">Email Address *</label>
+                            <input type="email"
+                                   id="ctcEmail"
+                                   name="email"
+                                   placeholder="your@email.com"
+                                   required />
+                        </div>
+
+                        <!-- Phone number - optional on contact form -->
+                        <div class="form-group">
+                            <label for="ctcPhone">Phone Number (optional)</label>
+                            <input type="tel"
+                                   id="ctcPhone"
+                                   name="phone"
+                                   placeholder="e.g. 0821234567"
+                                   pattern="^0[6-8][0-9]{8}$" />
+                            <small>10 digit South African mobile number starting with 0</small>
+                        </div>
+
+                    </fieldset>
+
+                    <!-- Message fieldset -->
+                    <fieldset>
+                        <legend>Your Message</legend>
+
+                        <!-- Type of message dropdown -->
+                        <div class="form-group">
+                            <label for="messageType">What is your message about? *</label>
+                            <select id="messageType" name="messageType" required>
+                                <option value="">-- Please select --</option>
+                                <option value="general">General Enquiry</option>
+                                <option value="feedback">Compliment or Feedback</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="delivery">Delivery Query</option>
+                                <option value="wholesale">Wholesale or Partnership</option>
+                                <option value="media">Media or Press</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Message textarea -->
+                        <div class="form-group">
+                            <label for="ctcMessage">Your Message *</label>
+                            <textarea id="ctcMessage"
+                                      name="message"
+                                      rows="6"
+                                      placeholder="Type your message here..."
+                                      required
+                                      minlength="10"
+                                      maxlength="1500"></textarea>
+                            <small>Maximum 1500 characters.</small>
+                        </div>
+
+                        <!-- Newsletter opt-in checkbox -->
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox"
+                                       id="newsletter"
+                                       name="newsletter"
+                                       value="yes" />
+                                Subscribe to our newsletter for specials, new products and seasonal treats
+                            </label>
+                        </div>
+
+                    </fieldset>
+
+                    <!-- Submit button - in Part 3 this will compile the form into a mailto email -->
+                    <div class="form-submit">
+                        <button type="submit">Send Message</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Sidebar with extra contact options -->
+            <aside class="contact-sidebar">
+
+                <div class="info-box">
+                    <h3>Other Ways to Reach Us</h3>
+                    <ul>
+                        <li>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></li>
+                        <li>WhatsApp: <a href="https://wa.me/27821234567">Chat on WhatsApp</a></li>
+                        <li>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Follow Us on Social Media</h3>
+                    <ul>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Response Times</h3>
+                    <ul>
+                        <li>Phone calls: During business hours</li>
+                        <li>WhatsApp: Within 4 hours</li>
+                        <li>Email: Within 24 hours</li>
+                        <li>Website form: Within 24 hours</li>
+                    </ul>
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <!-- ================================================
+         FOOTER - same on every page
+    ================================================ -->
+    <footer>
+
+        <div>
+            <h3>Sweet Crumbs Bakery</h3>
+            <p>Handcrafted baked goods made with love in Johannesburg since 2015.</p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact Us</h4>
+            <address>
+                <p>12 Baker Street, Melville, Johannesburg, 2092</p>
+                <p>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></p>
+                <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
+            </address>
+        </div>
+
+        <div>
+            <h4>Opening Hours</h4>
+            <ul>
+                <li>Monday to Friday: 06:00 - 18:00</li>
+                <li>Saturday: 07:00 - 15:00</li>
+                <li>Sunday: 08:00 - 13:00</li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
+            <p>Designed by Lesego Siziba | ST10515388 | WEDE5020</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

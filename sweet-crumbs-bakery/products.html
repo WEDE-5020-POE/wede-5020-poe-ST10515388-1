@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--
+    Sweet Crumbs Bakery - Products Page
+    File: products.html
+    Student: Lesego Siziba
+    Student Number: ST10515388
+    Module: WEDE5020 - Web Development (Introduction)
+    Part 1 - HTML Structure and Content
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title for the Products page -->
+    <title>Products | Sweet Crumbs Bakery - Breads, Pastries and Custom Cakes</title>
+
+    <!-- Meta description for this page -->
+    <meta name="description" content="Browse the full range of handcrafted breads, pastries and custom cakes from Sweet Crumbs Bakery in Johannesburg. Fresh baked daily." />
+
+    <!-- Keywords for this page -->
+    <meta name="keywords" content="artisan bread Johannesburg, fresh pastries, custom cakes, gluten free bakery, sourdough, croissants, Sweet Crumbs" />
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ================================================
+         HEADER - same on every page
+    ================================================ -->
+    <header>
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo" />
+                <span>Sweet Crumbs Bakery</span>
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- Page banner -->
+    <div class="page-banner">
+        <h1>Our Products</h1>
+        <p>Everything is handcrafted using premium ingredients and baked fresh every single day.</p>
+    </div>
+
+    <!-- ================================================
+         MAIN CONTENT
+    ================================================ -->
+    <main>
+
+        <!-- Breads section -->
+        <section class="product-category">
+            <h2>Artisan Breads</h2>
+            <p>All our breads are made using traditional methods and slow fermentation for maximum flavour.</p>
+
+            <!-- Bread product 1 -->
+            <article class="product-card">
+                <img src="images/sourdough.jpg" alt="Golden brown sourdough loaf with a deeply scored crust resting on a wooden board" />
+                <div class="product-details">
+                    <h3>Classic Sourdough Loaf</h3>
+                    <p>Our signature sourdough is slow-fermented for 72 hours giving it a tangy flavour, a chewy crumb and that crackling crust everyone loves. Available in white or whole wheat.</p>
+                    <ul>
+                        <li>Weight: 800g</li>
+                        <li>Allergens: Gluten, Wheat</li>
+                        <li>Available daily from 06:00</li>
+                    </ul>
+                    <p><strong>Price: R65.00</strong></p>
+                    <a href="enquiry.html">Order Now</a>
+                </div>
+            </article>
+
+            <!-- Bread product 2 -->
+            <article class="product-card">
+                <img src="images/ciabatta.jpg" alt="Two rustic ciabatta loaves lightly dusted with flour sitting on a linen cloth" />
+                <div class="product-details">
+                    <h3>Italian Ciabatta</h3>
+                    <p>Light and airy with a crispy crust. Our ciabatta is perfect for bruschetta, sandwiches or simply dipped in a good quality olive oil.</p>
+                    <ul>
+                        <li>Weight: 500g</li>
+                        <li>Allergens: Gluten, Wheat</li>
+                        <li>Available Monday to Saturday</li>
+                    </ul>
+                    <p><strong>Price: R45.00</strong></p>
+                    <a href="enquiry.html">Order Now</a>
+                </div>
+            </article>
+
+            <!-- Bread product 3 - gluten free -->
+            <article class="product-card">
+                <img src="images/gf-loaf.jpg" alt="Sliced gluten free seeded loaf showing the moist crumb packed with sunflower and pumpkin seeds" />
+                <div class="product-details">
+                    <h3>Gluten-Free Seeded Loaf</h3>
+                    <p>A hearty and filling gluten-free loaf packed with sunflower, pumpkin and sesame seeds. Delicious toasted with avocado or peanut butter. Made in a dedicated gluten-free area of our kitchen.</p>
+                    <ul>
+                        <li>Weight: 700g</li>
+                        <li>Allergens: Sesame, Seeds (no Gluten)</li>
+                        <li>Pre-order required - 48 hours notice needed</li>
+                    </ul>
+                    <p><strong>Price: R80.00</strong></p>
+                    <a href="enquiry.html">Pre-Order</a>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Pastries section -->
+        <section class="product-category">
+            <h2>Pastries and Viennoiserie</h2>
+            <p>Our pastries are made using the traditional lamination method. Each one takes hours to prepare properly.</p>
+
+            <!-- Pastry product 1 -->
+            <article class="product-card">
+                <img src="images/croissant.jpg" alt="Freshly baked flaky golden butter croissants stacked on a white ceramic plate with a cup of coffee" />
+                <div class="product-details">
+                    <h3>Butter Croissants</h3>
+                    <p>Made the traditional French way using 27 layers of pure French butter pastry. Crispy on the outside, soft and buttery on the inside. Best enjoyed warm fresh from the oven.</p>
+                    <ul>
+                        <li>Sold individually or in packs of 4</li>
+                        <li>Allergens: Gluten, Dairy, Eggs</li>
+                        <li>Available daily, best before 11:00</li>
+                    </ul>
+                    <p><strong>Price: R22.00 each / R80.00 for 4</strong></p>
+                    <a href="enquiry.html">Order Now</a>
+                </div>
+            </article>
+
+            <!-- Pastry product 2 -->
+            <article class="product-card">
+                <img src="images/pain-au-choc.jpg" alt="Pain au chocolat pastry with a visible melted dark chocolate centre on a sheet of baking paper" />
+                <div class="product-details">
+                    <h3>Pain au Chocolat</h3>
+                    <p>A buttery croissant dough wrapped around two thick batons of rich Belgian dark chocolate. The perfect morning treat with a cup of coffee.</p>
+                    <ul>
+                        <li>Allergens: Gluten, Dairy, Eggs, Soy</li>
+                        <li>Available daily until sold out</li>
+                    </ul>
+                    <p><strong>Price: R26.00</strong></p>
+                    <a href="enquiry.html">Order Now</a>
+                </div>
+            </article>
+
+            <!-- Pastry product 3 -->
+            <article class="product-card">
+                <img src="images/danish.jpg" alt="Swirled cinnamon Danish pastry with a golden glaze and light dusting of icing sugar on a white plate" />
+                <div class="product-details">
+                    <h3>Cinnamon Danish</h3>
+                    <p>Warm swirled Danish pastry with a generous cinnamon butter filling and finished with a light vanilla glaze. A weekend favourite at both our stores.</p>
+                    <ul>
+                        <li>Allergens: Gluten, Dairy, Eggs</li>
+                        <li>Available weekends only</li>
+                    </ul>
+                    <p><strong>Price: R28.00</strong></p>
+                    <a href="enquiry.html">Order Now</a>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Cakes section -->
+        <section class="product-category">
+            <h2>Cakes and Desserts</h2>
+            <p>From custom celebration cakes to everyday slices, we bake every cake with the same care and attention.</p>
+
+            <!-- Cake product 1 -->
+            <article class="product-card">
+                <img src="images/cake.jpg" alt="Three layer custom celebration cake with smooth white buttercream frosting and fresh strawberries arranged on top" />
+                <div class="product-details">
+                    <h3>Custom Layer Cake</h3>
+                    <p>Our most popular product. Fully customisable 3-layer cakes for any celebration. You choose the sponge flavour, filling, frosting and decoration theme and we bake it exactly how you want it.</p>
+                    <ul>
+                        <li>Serves 12 to 16 people</li>
+                        <li>Minimum 72 hours advance order required</li>
+                        <li>Flavours: Vanilla, Chocolate, Red Velvet, Lemon, Carrot</li>
+                        <li>Allergens: Gluten, Dairy, Eggs (ask about alternatives)</li>
+                    </ul>
+                    <p><strong>Price: From R350.00</strong></p>
+                    <a href="enquiry.html">Submit Custom Order</a>
+                </div>
+            </article>
+
+            <!-- Cake product 2 -->
+            <article class="product-card">
+                <img src="images/choc-cake.jpg" alt="Dark chocolate fudge cake on a white cake stand with glossy ganache dripping down the sides" />
+                <div class="product-details">
+                    <h3>Chocolate Fudge Cake</h3>
+                    <p>A dense, rich and incredibly moist dark chocolate cake made with Belgian cocoa and covered in a glossy ganache frosting. Also available in a gluten-free version.</p>
+                    <ul>
+                        <li>Whole cake serves 10 to 12 people</li>
+                        <li>Allergens: Eggs, Dairy, Soy (GF version has no Gluten)</li>
+                        <li>Available Friday to Sunday</li>
+                    </ul>
+                    <p><strong>Price: R280.00 whole cake</strong></p>
+                    <a href="enquiry.html">Order Now</a>
+                </div>
+            </article>
+
+            <!-- Cake product 3 -->
+            <article class="product-card">
+                <img src="images/cheesecake.jpg" alt="New York style baked vanilla cheesecake on a buttery biscuit base with a generous topping of blueberry compote" />
+                <div class="product-details">
+                    <h3>Baked New York Cheesecake</h3>
+                    <p>A classic baked cheesecake on a buttery biscuit base. Creamy, smooth and topped with a seasonal berry compote. Pre-orders are recommended as they sell out fast.</p>
+                    <ul>
+                        <li>Serves 8 to 10 people</li>
+                        <li>Allergens: Dairy, Eggs, Gluten</li>
+                        <li>Pre-order recommended</li>
+                    </ul>
+                    <p><strong>Price: R260.00</strong></p>
+                    <a href="enquiry.html">Order Now</a>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Link to enquiry page for custom orders -->
+        <section class="products-cta">
+            <h2>Can't Find What You're Looking For?</h2>
+            <p>We love a challenge. Submit a custom order enquiry and we will bake something unique just for you.</p>
+            <a href="enquiry.html">Submit a Custom Enquiry</a>
+        </section>
+
+    </main>
+
+    <!-- ================================================
+         FOOTER - same on every page
+    ================================================ -->
+    <footer>
+
+        <div>
+            <h3>Sweet Crumbs Bakery</h3>
+            <p>Handcrafted baked goods made with love in Johannesburg since 2015.</p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Contact Us</h4>
+            <address>
+                <p>12 Baker Street, Melville, Johannesburg, 2092</p>
+                <p>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></p>
+                <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
+            </address>
+        </div>
+
+        <div>
+            <h4>Opening Hours</h4>
+            <ul>
+                <li>Monday to Friday: 06:00 - 18:00</li>
+                <li>Saturday: 07:00 - 15:00</li>
+                <li>Sunday: 08:00 - 13:00</li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
+            <p>Designed by Lesego Siziba | ST10515388 | WEDE5020</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
