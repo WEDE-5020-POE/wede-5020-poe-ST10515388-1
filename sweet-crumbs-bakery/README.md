@@ -3,7 +3,7 @@
 **Module:** WEDE5020 - Web Development (Introduction)
 **Student Name:** Lesego Siziba
 **Student Number:** ST10515388
-**Campus:** Varsity College Johannesburg
+**Campus:** Rosebank College PTA
 **Part:** Part 1 - Building the Foundation
 **Submission Date:** 19 February 2026
 
