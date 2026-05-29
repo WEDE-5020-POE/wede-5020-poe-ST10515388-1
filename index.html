@@ -1,13 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <!-- Page title - important for SEO and browser tabs -->
+    <title>Sweet Crumbs Bakery | Artisan Breads & Custom Cakes in Johannesburg</title>
+    
+    <!-- Meta description for search engines -->
+    <meta name="description" content="Sweet Crumbs Bakery offers handmade sourdough breads, fresh pastries, and custom celebration cakes in Melville and Sandton City, Johannesburg.">
+    
+    <!-- Link to external stylesheet - content will be added in Part 2 -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Blockchain Dlamini</h1>
-    <p>Some information about me</p>
-    <img src="img/img.jpg" alt="Image of a rotweiller">
+    <!-- 
+        HEADER SECTION
+        Contains the site logo and main navigation menu.
+        The header appears on all pages for consistent branding.
+    -->
+    <header>
+        <!-- Site logo and brand name -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo featuring a stylised wheat sheaf and rolling pin" width="150" height="60">
+            </a>
+            <span class="brand-name">Sweet Crumbs Bakery</span>
+        </div>
+        
+        <!-- 
+            NAVIGATION MENU
+            Uses semantic nav element with unordered list.
+            All links connect to the 5 main pages of the website.
+        -->
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="enquiry.html">Order Enquiry</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 
+        MAIN CONTENT AREA
+        Contains all primary page content.
+        Using main element for accessibility - screen readers can skip to main content.
+    -->
+    <main>
+        <!-- 
+            HERO SECTION
+            Large banner area with background image, headline, and call-to-action buttons.
+            This is the first thing visitors see and should capture attention.
+        -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1>Handcrafted with Love, Baked Fresh Daily</h1>
+                <p>Artisan sourdough breads, buttery pastries, and stunning celebration cakes made from scratch in Johannesburg since 2015.</p>
+                
+                <!-- Two call-to-action buttons for primary user actions -->
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn btn-primary">View Our Products</a>
+                    <a href="enquiry.html" class="btn btn-secondary">Order a Custom Cake</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            FEATURES SECTION
+            Highlights 4 key selling points of the bakery.
+            Each feature is wrapped in an article element as it's self-contained content.
+        -->
+        <section class="features" id="features">
+            <h2>Why Choose Sweet Crumbs?</h2>
+            
+            <div class="features-grid">
+                <!-- Feature 1: Fresh Daily -->
+                <article class="feature-card">
+                    <img src="images/icon-fresh.png" alt="Clock icon representing freshness" width="64" height="64" loading="lazy">
+                    <h3>Baked Fresh Daily</h3>
+                    <p>Every loaf, pastry, and cake is made from scratch each morning. We never sell day-old products.</p>
+                </article>
+
+                <!-- Feature 2: Custom Cakes -->
+                <article class="feature-card">
+                    <img src="images/icon-cake.png" alt="Tiered cake icon" width="64" height="64" loading="lazy">
+                    <h3>Custom Celebration Cakes</h3>
+                    <p>From birthdays to weddings, our pastry chefs create personalised cakes tailored to your vision.</p>
+                </article>
+
+                <!-- Feature 3: Delivery -->
+                <article class="feature-card">
+                    <img src="images/icon-delivery.png" alt="Delivery van icon" width="64" height="64" loading="lazy">
+                    <h3>Joburg-Wide Delivery</h3>
+                    <p>We deliver across Johannesburg. Order before 2pm for next-day delivery to your door.</p>
+                </article>
+
+                <!-- Feature 4: Dietary Options -->
+                <article class="feature-card">
+                    <img src="images/icon-glutenfree.png" alt="Wheat with cross icon indicating gluten-free" width="64" height="64" loading="lazy">
+                    <h3>Allergen-Friendly Options</h3>
+                    <p>We offer gluten-free, dairy-free, and vegan options. Ask us about your dietary requirements.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 
+            POPULAR PRODUCTS SECTION
+            Showcases 3 best-selling items to encourage browsing.
+            Links to the full products page.
+        -->
+        <section class="products-preview" id="products-preview">
+            <h2>Our Most Popular Products</h2>
+            <p class="section-intro">Discover what keeps our customers coming back for more.</p>
+            
+            <div class="products-grid">
+                <!-- Product 1: Signature Sourdough -->
+                <article class="product-card">
+                    <img src="images/sourdough.jpg" alt="Round rustic sourdough loaf with golden crust and flour dusting on a wooden board" width="300" height="200" loading="lazy">
+                    <h3>Signature Sourdough</h3>
+                    <p>Our award-winning sourdough with a perfectly crisp crust and soft, tangy interior. Naturally fermented for 24 hours.</p>
+                    <p class="price">R65</p>
+                    <a href="products.html#breads" class="btn btn-small">View Details</a>
+                </article>
+
+                <!-- Product 2: Butter Croissant -->
+                <article class="product-card">
+                    <img src="images/croissant.jpg" alt="Flaky golden butter croissant on a white plate with visible layers" width="300" height="200" loading="lazy">
+                    <h3>Classic Butter Croissant</h3>
+                    <p>Layers of buttery, flaky pastry made with imported French butter. Best enjoyed warm from the oven.</p>
+                    <p class="price">R35</p>
+                    <a href="products.html#pastries" class="btn btn-small">View Details</a>
+                </article>
+
+                <!-- Product 3: Celebration Cake -->
+                <article class="product-card">
+                    <img src="images/cake.jpg" alt="Three-tiered white wedding cake decorated with fresh roses and gold accents" width="300" height="200" loading="lazy">
+                    <h3>Custom Celebration Cake</h3>
+                    <p>Bespoke cakes designed for your special occasion. Available in multiple flavours and sizes.</p>
+                    <p class="price">From R450</p>
+                    <a href="enquiry.html" class="btn btn-small">Request a Quote</a>
+                </article>
+            </div>
+            
+            <a href="products.html" class="btn btn-primary">Browse All Products</a>
+        </section>
+
+        <!-- 
+            TESTIMONIALS SECTION
+            Customer reviews to build trust and social proof.
+            Using blockquote element for quotations.
+        -->
+        <section class="testimonials" id="testimonials">
+            <h2>What Our Customers Say</h2>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <article class="testimonial-card">
+                    <blockquote>
+                        <p>"The best sourdough in Joburg, hands down! I drive 30 minutes every Saturday just to get a fresh loaf. The crust is perfection."</p>
+                    </blockquote>
+                    <cite>
+                        <strong>Nomvula M.</strong>
+                        <span>Sandton</span>
+                    </cite>
+                </article>
+
+                <!-- Testimonial 2 -->
+                <article class="testimonial-card">
+                    <blockquote>
+                        <p>"They made my daughter's 5th birthday cake and it was absolutely stunning. Looked exactly like the unicorn she wanted and tasted even better!"</p>
+                    </blockquote>
+                    <cite>
+                        <strong>David K.</strong>
+                        <span>Parkhurst</span>
+                    </cite>
+                </article>
+
+                <!-- Testimonial 3 -->
+                <article class="testimonial-card">
+                    <blockquote>
+                        <p>"Finally a bakery that takes gluten-free seriously! Their GF bread doesn't taste like cardboard. My coeliac husband is thrilled."</p>
+                    </blockquote>
+                    <cite>
+                        <strong>Priya S.</strong>
+                        <span>Rosebank</span>
+                    </cite>
+                </article>
+            </div>
+        </section>
+
+        <!-- 
+            CALL TO ACTION SECTION
+            Encourages visitors to take action - visit store or place order.
+            Contrasting background colour to stand out.
+        -->
+        <section class="cta-banner" id="cta">
+            <h2>Ready to Taste the Difference?</h2>
+            <p>Visit our bakeries in Melville or Sandton City, or place a custom order online.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Find Our Stores</a>
+                <a href="enquiry.html" class="btn btn-secondary">Place an Order</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+        FOOTER SECTION
+        Contains contact info, quick links, opening hours, and social media.
+        Footer appears on all pages.
+    -->
+    <footer>
+        <div class="footer-grid">
+            <!-- Footer Column 1: About/Brand -->
+            <div class="footer-column">
+                <h3>Sweet Crumbs Bakery</h3>
+                <p>Artisan breads and pastries handcrafted with love in Johannesburg since 2015.</p>
+                <img src="images/logo-white.png" alt="Sweet Crumbs Bakery logo in white" width="120" height="48" loading="lazy">
+            </div>
+
+            <!-- Footer Column 2: Quick Links -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="enquiry.html">Order Enquiry</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Column 3: Contact Info using address element -->
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <address>
+                    <p><strong>Melville:</strong> 27 7th Street, Melville, Johannesburg</p>
+                    <p><strong>Sandton:</strong> Shop 45, Sandton City Mall</p>
+                    <p>Phone: <a href="tel:+27114825500">011 482 5500</a></p>
+                    <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
+                </address>
+            </div>
+
+            <!-- Footer Column 4: Opening Hours -->
+            <div class="footer-column">
+                <h3>Opening Hours</h3>
+                <ul class="hours-list">
+                    <li><strong>Monday - Friday:</strong> 6:30am - 6:00pm</li>
+                    <li><strong>Saturday:</strong> 7:00am - 4:00pm</li>
+                    <li><strong>Sunday:</strong> 8:00am - 2:00pm</li>
+                    <li><strong>Public Holidays:</strong> 8:00am - 12:00pm</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright and Social Media -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
+            <div class="social-links">
+                <a href="[facebook.com](https://facebook.com/sweetcrumbsjhb)" aria-label="Visit our Facebook page">
+                    <img src="images/icon-facebook.png" alt="" width="32" height="32">
+                </a>
+                <a href="[instagram.com](https://instagram.com/sweetcrumbsjhb)" aria-label="Visit our Instagram page">
+                    <img src="images/icon-instagram.png" alt="" width="32" height="32">
+                </a>
+                <a href="[wa.me](https://wa.me/27114825500)" aria-label="Contact us on WhatsApp">
+                    <img src="images/icon-whatsapp.png" alt="" width="32" height="32">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file - content will be added in Part 3 -->
+    <script src="js/main.js"></script>
 </body>
 </html>
