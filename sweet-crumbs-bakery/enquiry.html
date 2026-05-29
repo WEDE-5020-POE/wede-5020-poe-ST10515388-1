@@ -1,348 +1,387 @@
-<!DOCTYPE html>
-<!--
-    Sweet Crumbs Bakery - Enquiry Page
-    File: enquiry.html
-    Student: Lesego Siziba
-    Student Number: ST10515388
-    Module: WEDE5020 - Web Development (Introduction)
-    Part 1 - HTML Structure and Content
-
-    Note: This form has the HTML structure for Part 1.
-    JavaScript validation and the quote response will be
-    added in Part 3.
--->
+<<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Title for the Enquiry page -->
-    <title>Product Enquiry | Sweet Crumbs Bakery - Custom Orders Johannesburg</title>
-
-    <!-- Meta description for this page -->
-    <meta name="description" content="Submit a custom order enquiry to Sweet Crumbs Bakery. Tell us what you need and we will send you a personalised quote within 24 hours." />
-
-    <!-- Keywords for this page -->
-    <meta name="keywords" content="custom cake order Johannesburg, bakery enquiry form, order artisan bread, Sweet Crumbs custom order" />
-
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Order Enquiry | Sweet Crumbs Bakery - Custom Orders & Quotes</title>
+    <meta name="description" content="Request a custom order or quote from Sweet Crumbs Bakery. Order celebration cakes, bulk bread orders, or event catering.">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <!-- ================================================
-         HEADER - same on every page
-    ================================================ -->
+    <!-- Header -->
     <header>
-
         <div class="logo">
             <a href="index.html">
-                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo" />
-                <span>Sweet Crumbs Bakery</span>
+                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo featuring a stylised wheat sheaf and rolling pin" width="150" height="60">
             </a>
+            <span class="brand-name">Sweet Crumbs Bakery</span>
         </div>
-
-        <nav>
+        
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="enquiry.html" class="active">Order Enquiry</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-
     </header>
 
-    <!-- Page banner -->
-    <div class="page-banner">
-        <h1>Product Enquiry</h1>
-        <p>Tell us what you need and we will put together a personalised quote for you.</p>
-    </div>
-
-    <!-- ================================================
-         MAIN CONTENT
-    ================================================ -->
     <main>
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <h1>Order Enquiry</h1>
+            <p>Request a custom order or get a quote for your special occasion</p>
+        </section>
 
+        <!-- 
+            FORM SECTION WITH SIDEBAR LAYOUT
+            Form on the left, pricing info sidebar on the right.
+        -->
         <section class="enquiry-section">
+            <div class="form-container">
+                <!-- 
+                    ORDER ENQUIRY FORM
+                    Uses two fieldsets to group related inputs.
+                    Includes all required input types: text, email, tel, number, date, select, radio, checkbox, textarea.
+                    JavaScript validation will be added in Part 3.
+                -->
+                <form id="enquiry-form" action="#" method="post">
+                    <!-- 
+                        FIELDSET 1: PERSONAL DETAILS
+                        Groups customer contact information.
+                    -->
+                    <fieldset>
+                        <legend>Your Details</legend>
+                        
+                        <!-- Full Name - text input with required and pattern validation -->
+                        <div class="form-group">
+                            <label for="fullname">Full Name <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="fullname" 
+                                name="fullname" 
+                                required 
+                                minlength="2" 
+                                maxlength="100"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                            >
+                            <span class="error-message" id="fullname-error"></span>
+                        </div>
 
-            <!-- Introduction text explaining the enquiry process -->
-            <div class="enquiry-intro">
-                <h2>Submit Your Enquiry</h2>
-                <p>Fill in the form below with as much detail as possible about your order. We will review your enquiry and get back to you with a confirmed quote via email within 24 hours.</p>
-                <p>For custom cakes and special orders please give us at least 72 hours notice. For gluten-free products we need 48 hours notice.</p>
+                        <!-- Email - email input with required validation -->
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                            >
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+
+                        <!-- Phone - tel input with pattern for SA numbers -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                required 
+                                placeholder="e.g. 082 123 4567"
+                                pattern="[0-9]{10,11}"
+                                title="Please enter a valid South African phone number (10-11 digits)"
+                                autocomplete="tel"
+                            >
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+                    </fieldset>
+
+                    <!-- 
+                        FIELDSET 2: ORDER DETAILS
+                        Groups all information about the order itself.
+                    -->
+                    <fieldset>
+                        <legend>Order Details</legend>
+                        
+                        <!-- Product Category - select dropdown -->
+                        <div class="form-group">
+                            <label for="category">Product Category <span class="required">*</span></label>
+                            <select id="category" name="category" required>
+                                <option value="">-- Select a category --</option>
+                                <option value="bread">Artisan Breads</option>
+                                <option value="pastry">Pastries</option>
+                                <option value="cake-celebration">Celebration Cakes</option>
+                                <option value="cake-wedding">Wedding Cakes</option>
+                                <option value="catering">Event Catering</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="error-message" id="category-error"></span>
+                        </div>
+
+                        <!-- Specific Product - text input for product name -->
+                        <div class="form-group">
+                            <label for="product">Product Name (if known)</label>
+                            <input 
+                                type="text" 
+                                id="product" 
+                                name="product" 
+                                maxlength="100"
+                                placeholder="e.g. Signature Sourdough, Chocolate Layer Cake"
+                            >
+                        </div>
+
+                        <!-- Quantity - number input with min/max -->
+                        <div class="form-group">
+                            <label for="quantity">Quantity <span class="required">*</span></label>
+                            <input 
+                                type="number" 
+                                id="quantity" 
+                                name="quantity" 
+                                required 
+                                min="1" 
+                                max="100"
+                                value="1"
+                            >
+                            <span class="error-message" id="quantity-error"></span>
+                        </div>
+
+                        <!-- Date Required - date input with min date (3 days ahead) -->
+                        <div class="form-group">
+                            <label for="date-required">Date Required <span class="required">*</span></label>
+                            <input 
+                                type="date" 
+                                id="date-required" 
+                                name="date-required" 
+                                required
+                            >
+                            <span class="hint">Please allow at least 3 days for custom cakes, 1 week for wedding cakes.</span>
+                            <span class="error-message" id="date-error"></span>
+                        </div>
+
+                        <!-- Collection/Delivery - radio buttons -->
+                        <div class="form-group">
+                            <p class="radio-group-label">Collection or Delivery? <span class="required">*</span></p>
+                            
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" id="collect-melville" name="delivery-method" value="collect-melville" required>
+                                    <span>Collect from Melville</span>
+                                </label>
+                                
+                                <label class="radio-label">
+                                    <input type="radio" id="collect-sandton" name="delivery-method" value="collect-sandton">
+                                    <span>Collect from Sandton City</span>
+                                </label>
+                                
+                                <label class="radio-label">
+                                    <input type="radio" id="delivery" name="delivery-method" value="delivery">
+                                    <span>Delivery (additional fee applies)</span>
+                                </label>
+                            </div>
+                            <span class="error-message" id="delivery-error"></span>
+                        </div>
+
+                        <!-- Delivery Address - text input (shown if delivery selected, enhanced via JS in Part 3) -->
+                        <div class="form-group" id="address-group">
+                            <label for="delivery-address">Delivery Address</label>
+                            <input 
+                                type="text" 
+                                id="delivery-address" 
+                                name="delivery-address" 
+                                maxlength="200"
+                                placeholder="Full street address including suburb and postal code"
+                            >
+                        </div>
+
+                        <!-- Dietary Requirements - checkboxes -->
+                        <div class="form-group">
+                            <p class="checkbox-group-label">Dietary Requirements (select all that apply)</p>
+                            
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="gluten-free" name="dietary" value="gluten-free">
+                                    <span>Gluten-free</span>
+                                </label>
+                                
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="dairy-free" name="dietary" value="dairy-free">
+                                    <span>Dairy-free</span>
+                                </label>
+                                
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="vegan" name="dietary" value="vegan">
+                                    <span>Vegan</span>
+                                </label>
+                                
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="nut-free" name="dietary" value="nut-free">
+                                    <span>Nut-free</span>
+                                </label>
+                                
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="halal" name="dietary" value="halal">
+                                    <span>Halal</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Special Instructions - textarea -->
+                        <div class="form-group">
+                            <label for="instructions">Special Instructions</label>
+                            <textarea 
+                                id="instructions" 
+                                name="instructions" 
+                                rows="5" 
+                                maxlength="1000"
+                                placeholder="Please provide any additional details about your order. For custom cakes, describe your design ideas, colours, themes, and any message you'd like written on the cake."
+                            ></textarea>
+                            <span class="hint">Maximum 1000 characters</span>
+                        </div>
+                    </fieldset>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+                    
+                    <!-- 
+                        RESPONSE MESSAGE AREA
+                        This will display the estimated cost and confirmation after form submission.
+                        JavaScript will populate this in Part 3.
+                    -->
+                    <div id="form-response" class="form-response" role="alert" aria-live="polite"></div>
+                </form>
             </div>
 
-            <!-- ============================================
-                 ENQUIRY FORM
-                 Purpose: allows customers to enquire about
-                 products, availability and custom orders.
-                 JavaScript validation added in Part 3.
-            ============================================ -->
-            <form action="#" method="post" id="enquiryForm">
+            <!-- 
+                SIDEBAR WITH PRICING AND PROCESS INFO
+                Uses aside element as it's supplementary content.
+            -->
+            <aside class="enquiry-sidebar">
+                <div class="sidebar-section">
+                    <h2>Pricing Guide</h2>
+                    <p>Below are our starting prices. Final quotes depend on design complexity and requirements.</p>
+                    
+                    <h3>Breads</h3>
+                    <ul>
+                        <li>Sourdough Loaf: R65 each</li>
+                        <li>Ciabatta: R45 each</li>
+                        <li>Gluten-Free Loaf: R75 each</li>
+                        <li>Bulk discount: 10% off 10+ items</li>
+                    </ul>
 
-                <!-- Personal details fieldset groups related fields together -->
-                <fieldset>
-                    <legend>Your Details</legend>
+                    <h3>Pastries</h3>
+                    <ul>
+                        <li>Croissant: R35 each</li>
+                        <li>Pain au Chocolat: R42 each</li>
+                        <li>Danish: R38 each</li>
+                        <li>Pastry Platter (12 items): R380</li>
+                    </ul>
 
-                    <!-- First name field -->
-                    <div class="form-group">
-                        <label for="firstName">First Name *</label>
-                        <input type="text"
-                               id="firstName"
-                               name="firstName"
-                               placeholder="Enter your first name"
-                               required
-                               minlength="2"
-                               maxlength="50" />
-                    </div>
+                    <h3>Celebration Cakes</h3>
+                    <ul>
+                        <li>Small (8-10 serves): From R450</li>
+                        <li>Medium (12-16 serves): From R650</li>
+                        <li>Large (20-25 serves): From R850</li>
+                        <li>Tiered cakes: From R1,200</li>
+                        <li>Wedding cakes: From R2,500</li>
+                    </ul>
 
-                    <!-- Last name field -->
-                    <div class="form-group">
-                        <label for="lastName">Last Name *</label>
-                        <input type="text"
-                               id="lastName"
-                               name="lastName"
-                               placeholder="Enter your last name"
-                               required
-                               minlength="2"
-                               maxlength="50" />
-                    </div>
-
-                    <!-- Email address field -->
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email"
-                               id="email"
-                               name="email"
-                               placeholder="your@email.com"
-                               required />
-                    </div>
-
-                    <!-- Phone number field - SA mobile format -->
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel"
-                               id="phone"
-                               name="phone"
-                               placeholder="e.g. 0821234567"
-                               required
-                               pattern="^0[6-8][0-9]{8}$" />
-                        <small>Please enter a 10 digit South African mobile number starting with 0</small>
-                    </div>
-
-                </fieldset>
-
-                <!-- Order details fieldset -->
-                <fieldset>
-                    <legend>Order Details</legend>
-
-                    <!-- Product category dropdown -->
-                    <div class="form-group">
-                        <label for="productCategory">Product Category *</label>
-                        <select id="productCategory" name="productCategory" required>
-                            <option value="">-- Please select a category --</option>
-                            <option value="bread">Artisan Breads</option>
-                            <option value="pastry">Pastries and Viennoiserie</option>
-                            <option value="custom-cake">Custom Layer Cake</option>
-                            <option value="occasion-cake">Occasion or Celebration Cake</option>
-                            <option value="cheesecake">Cheesecake</option>
-                            <option value="gluten-free">Gluten-Free Products</option>
-                            <option value="corporate">Corporate or Bulk Order</option>
-                            <option value="other">Other (please describe below)</option>
-                        </select>
-                    </div>
-
-                    <!-- Quantity field -->
-                    <div class="form-group">
-                        <label for="quantity">Quantity *</label>
-                        <input type="number"
-                               id="quantity"
-                               name="quantity"
-                               placeholder="e.g. 2"
-                               min="1"
-                               required />
-                        <small>For cakes, enter the number of cakes. For bread, enter the number of loaves.</small>
-                    </div>
-
-                    <!-- Required by date -->
-                    <div class="form-group">
-                        <label for="requiredDate">Required By Date *</label>
-                        <input type="date"
-                               id="requiredDate"
-                               name="requiredDate"
-                               required />
-                        <small>Custom cakes need at least 72 hours notice. Gluten-free items need 48 hours.</small>
-                    </div>
-
-                    <!-- Delivery preference using radio buttons -->
-                    <div class="form-group">
-                        <label>Delivery Preference *</label>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="delivery" value="collection-melville" required />
-                                Collect from Melville store
-                            </label>
-                            <label>
-                                <input type="radio" name="delivery" value="collection-sandton" />
-                                Collect from Sandton City kiosk
-                            </label>
-                            <label>
-                                <input type="radio" name="delivery" value="delivery" />
-                                Delivery (Johannesburg and Gauteng - R65 fee, free over R500)
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Dietary requirements checkboxes -->
-                    <div class="form-group">
-                        <label>Dietary Requirements (select all that apply)</label>
-                        <div class="checkbox-group">
-                            <label>
-                                <input type="checkbox" name="dietary" value="gluten-free" />
-                                Gluten-Free
-                            </label>
-                            <label>
-                                <input type="checkbox" name="dietary" value="vegan" />
-                                Vegan
-                            </label>
-                            <label>
-                                <input type="checkbox" name="dietary" value="nut-free" />
-                                Nut-Free
-                            </label>
-                            <label>
-                                <input type="checkbox" name="dietary" value="dairy-free" />
-                                Dairy-Free
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Budget range dropdown -->
-                    <div class="form-group">
-                        <label for="budget">Approximate Budget</label>
-                        <select id="budget" name="budget">
-                            <option value="">-- Select a budget range (optional) --</option>
-                            <option value="under200">Under R200</option>
-                            <option value="200-500">R200 to R500</option>
-                            <option value="500-1000">R500 to R1 000</option>
-                            <option value="1000-2000">R1 000 to R2 000</option>
-                            <option value="over2000">Over R2 000</option>
-                        </select>
-                    </div>
-
-                    <!-- Message / additional details textarea -->
-                    <div class="form-group">
-                        <label for="orderDetails">Order Details *</label>
-                        <textarea id="orderDetails"
-                                  name="orderDetails"
-                                  rows="6"
-                                  placeholder="Please describe your order in as much detail as possible. For custom cakes include the flavour, filling, frosting, theme, colours and any other decorations you would like."
-                                  required
-                                  minlength="20"
-                                  maxlength="1000"></textarea>
-                        <small>Minimum 20 characters. Maximum 1000 characters.</small>
-                    </div>
-
-                </fieldset>
-
-                <!-- Submit button -->
-                <div class="form-submit">
-                    <button type="submit">Submit Enquiry</button>
+                    <h3>Delivery Fees</h3>
+                    <ul>
+                        <li>Within 10km: R50</li>
+                        <li>10-20km: R80</li>
+                        <li>20-35km: R120</li>
+                        <li>Further areas: Contact us</li>
+                    </ul>
                 </div>
 
-            </form>
-
-            <!-- Sidebar with helpful information for the customer -->
-            <aside class="enquiry-sidebar">
-
-                <div class="info-box">
-                    <h3>What Happens After I Submit?</h3>
+                <div class="sidebar-section">
+                    <h2>Order Process</h2>
                     <ol>
-                        <li>We receive your enquiry and review the details</li>
-                        <li>We send you a personalised quote by email within 24 hours</li>
-                        <li>You confirm the order and pay a 50% deposit</li>
-                        <li>We bake your order fresh on the day</li>
-                        <li>You collect or we deliver on your chosen date</li>
+                        <li><strong>Submit enquiry:</strong> Fill out this form with your requirements.</li>
+                        <li><strong>We respond:</strong> We'll reply within 24 hours with a quote.</li>
+                        <li><strong>Confirm & pay:</strong> Accept the quote and pay a 50% deposit.</li>
+                        <li><strong>We bake:</strong> We create your order fresh.</li>
+                        <li><strong>Collect or receive:</strong> Pick up or receive delivery.</li>
                     </ol>
                 </div>
 
-                <div class="info-box">
-                    <h3>Price Guide</h3>
-                    <ul>
-                        <li>Sourdough Loaf: R65</li>
-                        <li>Butter Croissants (x4): R80</li>
-                        <li>Custom Cake (12-16 people): From R350</li>
-                        <li>Chocolate Fudge Cake: R280</li>
-                        <li>Baked Cheesecake: R260</li>
-                        <li>GF Seeded Loaf: R80</li>
-                        <li>Bulk orders: Price on application</li>
-                    </ul>
+                <div class="sidebar-section">
+                    <h2>Questions?</h2>
+                    <p>Call us on <a href="tel:+27114825500">011 482 5500</a> or email <a href="mailto:orders@sweetcrumbs.co.za">orders@sweetcrumbs.co.za</a></p>
                 </div>
-
-                <div class="info-box">
-                    <h3>Advance Notice Required</h3>
-                    <ul>
-                        <li>Standard products: Same day (order before 09:00)</li>
-                        <li>Custom cakes: Minimum 72 hours</li>
-                        <li>Gluten-free items: Minimum 48 hours</li>
-                        <li>Bulk or corporate orders: 5 business days</li>
-                    </ul>
-                </div>
-
             </aside>
-
         </section>
-
     </main>
 
-    <!-- ================================================
-         FOOTER - same on every page
-    ================================================ -->
+    <!-- Footer -->
     <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Sweet Crumbs Bakery</h3>
+                <p>Artisan breads and pastries handcrafted with love in Johannesburg since 2015.</p>
+                <img src="images/logo-white.png" alt="Sweet Crumbs Bakery logo in white" width="120" height="48" loading="lazy">
+            </div>
 
-        <div>
-            <h3>Sweet Crumbs Bakery</h3>
-            <p>Handcrafted baked goods made with love in Johannesburg since 2015.</p>
-        </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="enquiry.html">Order Enquiry</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
 
-        <div>
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="enquiry.html">Enquiry</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <address>
+                    <p><strong>Melville:</strong> 27 7th Street, Melville, Johannesburg</p>
+                    <p><strong>Sandton:</strong> Shop 45, Sandton City Mall</p>
+                    <p>Phone: <a href="tel:+27114825500">011 482 5500</a></p>
+                    <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
+                </address>
+            </div>
 
-        <div>
-            <h4>Contact Us</h4>
-            <address>
-                <p>12 Baker Street, Melville, Johannesburg, 2092</p>
-                <p>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></p>
-                <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
-            </address>
-        </div>
-
-        <div>
-            <h4>Opening Hours</h4>
-            <ul>
-                <li>Monday to Friday: 06:00 - 18:00</li>
-                <li>Saturday: 07:00 - 15:00</li>
-                <li>Sunday: 08:00 - 13:00</li>
-            </ul>
+            <div class="footer-column">
+                <h3>Opening Hours</h3>
+                <ul class="hours-list">
+                    <li><strong>Monday - Friday:</strong> 6:30am - 6:00pm</li>
+                    <li><strong>Saturday:</strong> 7:00am - 4:00pm</li>
+                    <li><strong>Sunday:</strong> 8:00am - 2:00pm</li>
+                    <li><strong>Public Holidays:</strong> 8:00am - 12:00pm</li>
+                </ul>
+            </div>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
-            <p>Designed by Lesego Siziba | ST10515388 | WEDE5020</p>
+            <div class="social-links">
+                <a href="[facebook.com](https://facebook.com/sweetcrumbsjhb)" aria-label="Visit our Facebook page">
+                    <img src="images/icon-facebook.png" alt="" width="32" height="32">
+                </a>
+                <a href="[instagram.com](https://instagram.com/sweetcrumbsjhb)" aria-label="Visit our Instagram page">
+                    <img src="images/icon-instagram.png" alt="" width="32" height="32">
+                </a>
+                <a href="[wa.me](https://wa.me/27114825500)" aria-label="Contact us on WhatsApp">
+                    <img src="images/icon-whatsapp.png" alt="" width="32" height="32">
+                </a>
+            </div>
         </div>
-
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>

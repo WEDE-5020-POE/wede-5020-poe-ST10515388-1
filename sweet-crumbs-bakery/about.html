@@ -1,234 +1,272 @@
 <!DOCTYPE html>
-<!--
-    Sweet Crumbs Bakery - About Us Page
-    File: about.html
-    Student: Lesego Siziba
-    Student Number: ST10515388
-    Module: WEDE5020 - Web Development (Introduction)
-    Part 1 - HTML Structure and Content
--->
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Title for the About Us page with keywords -->
-    <title>About Us | Sweet Crumbs Bakery - Our Story, Mission and Team</title>
-
-    <!-- Meta description for this specific page -->
-    <meta name="description" content="Learn about the Sweet Crumbs Bakery story, our mission and vision, and the passionate team behind every fresh bake in Johannesburg." />
-
-    <!-- Keywords for this page -->
-    <meta name="keywords" content="Sweet Crumbs Bakery story, Johannesburg artisan bakery, bakery team, bakery mission" />
-
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title for browser tab and SEO -->
+    <title>About Us | Sweet Crumbs Bakery - Our Story, Team & Mission</title>
+    
+    <!-- Meta description for search engines -->
+    <meta name="description" content="Learn about Sweet Crumbs Bakery's journey from a home kitchen to two Johannesburg locations. Meet our team and discover our passion for artisan baking.">
+    
     <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <!-- ================================================
-         HEADER - same on every page
-    ================================================ -->
+    <!-- 
+        HEADER SECTION
+        Identical header structure across all pages for consistency.
+        Active state will be applied via CSS to show current page.
+    -->
     <header>
-
         <div class="logo">
             <a href="index.html">
-                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo" />
-                <span>Sweet Crumbs Bakery</span>
+                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo featuring a stylised wheat sheaf and rolling pin" width="150" height="60">
             </a>
+            <span class="brand-name">Sweet Crumbs Bakery</span>
         </div>
-
-        <!-- Navigation menu - same links on every page -->
-        <nav>
+        
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="enquiry.html">Order Enquiry</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-
     </header>
 
-    <!-- Page banner - shows the page title at the top -->
-    <div class="page-banner">
-        <h1>About Us</h1>
-        <p>From a small home kitchen to Johannesburg's favourite artisan bakery.</p>
-    </div>
-
-    <!-- ================================================
-         MAIN CONTENT
-    ================================================ -->
     <main>
-
-        <!-- Our story section - tells the history of the bakery -->
-        <section class="our-story">
-
-            <!-- Text side -->
-            <div>
-                <h2>How It All Began</h2>
-                <p>Sweet Crumbs Bakery was started in 2015 by Amara Dlamini from her home kitchen in Melville, Johannesburg. It started as a weekend hobby where she would bake sourdough bread for her family and friends. People loved her bread so much that they started asking to buy it.</p>
-                <p>Word spread quickly through the neighbourhood and by 2016 Amara was baking every day just to keep up with orders. She made the decision to turn her passion into a full-time business and in 2017 she opened the first Sweet Crumbs store at 12 Baker Street in Melville.</p>
-                <p>The team grew from just Amara working alone to twelve full-time staff members. Today Sweet Crumbs serves hundreds of happy customers every week and delivers fresh baked goods across Johannesburg and greater Gauteng. Despite all the growth, the philosophy has stayed the same: use the best local ingredients, bake everything fresh daily and treat every customer like family.</p>
-            </div>
-
-            <!-- Image side -->
-            <div>
-                <img src="images/bakery-interior.jpg" alt="The warm interior of Sweet Crumbs Bakery showing wooden shelves filled with fresh bread loaves and pastries" />
-            </div>
-
+        <!-- 
+            PAGE BANNER SECTION
+            Smaller hero area for internal pages with page title.
+        -->
+        <section class="page-banner">
+            <h1>About Sweet Crumbs Bakery</h1>
+            <p>Our story, our team, and our passion for baking</p>
         </section>
 
-        <!-- Mission and Vision section -->
-        <section class="mission-vision">
-            <h2>Our Mission and Vision</h2>
-
-            <!-- Mission card -->
-            <article>
-                <h3>Our Mission</h3>
-                <p>To bake the freshest and most delicious artisan goods in Johannesburg and to bring real joy to every customer's table through quality, consistency and genuine care. We want every single person who orders from us to feel like they got something truly special.</p>
-            </article>
-
-            <!-- Vision card -->
-            <article>
-                <h3>Our Vision</h3>
-                <p>To become South Africa's most loved artisan bakery brand - one that is trusted for its craft, respected for its commitment to sustainability and celebrated for the positive difference it makes in the local community.</p>
-            </article>
-
-            <!-- Values card -->
-            <article>
-                <h3>Our Values</h3>
-                <ul>
-                    <li>Quality without compromise - we never cut corners on ingredients</li>
-                    <li>Community and inclusivity - good bread should be for everyone</li>
-                    <li>Sustainability - we source locally and use compostable packaging</li>
-                    <li>Creativity - every cake order is a chance to make something beautiful</li>
-                    <li>Honesty - transparent pricing and no hidden charges ever</li>
-                </ul>
-            </article>
-
+        <!-- 
+            OUR STORY SECTION
+            Tells the founding story of the bakery.
+            Includes an image alongside the text for visual interest.
+        -->
+        <section class="our-story" id="our-story">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Sweet Crumbs Bakery began in 2015 in the kitchen of founder <strong>Amara Dlamini</strong>. What started as a passion project—baking sourdough loaves for friends and family—quickly grew into something more when word spread about her exceptional bread.</p>
+                
+                <p>Amara's love affair with baking started during childhood visits to her grandmother's farm in the Free State. She would spend hours watching her ouma knead dough, learning the patience and care that goes into every loaf. Years later, after a career in corporate finance left her unfulfilled, Amara decided to follow her heart.</p>
+                
+                <p>In 2016, she took a leap of faith and opened a small bakery on 7th Street in Melville. The neighbourhood embraced her immediately. Lines formed before opening time as locals discovered bread that tasted like it came from a European village bakery—because Amara had spent six months training in France before opening.</p>
+                
+                <p>Today, Sweet Crumbs has grown to two locations—our original Melville home and a bustling kiosk in Sandton City. We've expanded our range to include pastries, custom cakes, and allergen-friendly options, but our philosophy remains unchanged: <em>real ingredients, traditional methods, no shortcuts</em>.</p>
+            </div>
+            
+            <div class="story-image">
+                <img src="images/bakery-interior.jpg" alt="Interior of the Sweet Crumbs Melville bakery showing wooden shelves stacked with fresh bread loaves, a glass display case with pastries, and warm pendant lighting" width="500" height="400" loading="lazy">
+            </div>
         </section>
 
-        <!-- Team members section - introduces the main team -->
-        <section class="team">
+        <!-- 
+            MISSION AND VISION SECTION
+            Three article cards highlighting core values.
+            Using article elements as each is a standalone piece of content.
+        -->
+        <section class="mission-vision" id="mission-vision">
+            <h2>What We Stand For</h2>
+            
+            <div class="values-grid">
+                <!-- Mission -->
+                <article class="value-card">
+                    <h3>Our Mission</h3>
+                    <p>To bring the joy of authentic, handcrafted baked goods to Johannesburg. We believe everyone deserves access to real bread—made with quality ingredients, time-honoured techniques, and genuine care.</p>
+                </article>
+
+                <!-- Vision -->
+                <article class="value-card">
+                    <h3>Our Vision</h3>
+                    <p>To become South Africa's most trusted artisan bakery, known not just for exceptional products but for the warmth and community we create. We want every customer to feel like family.</p>
+                </article>
+
+                <!-- Values -->
+                <article class="value-card">
+                    <h3>Our Values</h3>
+                    <ul>
+                        <li><strong>Quality:</strong> We never compromise on ingredients or methods</li>
+                        <li><strong>Authenticity:</strong> Traditional techniques over industrial shortcuts</li>
+                        <li><strong>Community:</strong> Supporting local suppliers and causes</li>
+                        <li><strong>Sustainability:</strong> Minimising waste and environmental impact</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- 
+            TEAM SECTION
+            Profiles of 4 key team members.
+            Each profile uses article element and includes photo, name, role, and bio.
+        -->
+        <section class="our-team" id="our-team">
             <h2>Meet Our Team</h2>
-            <p>These are the talented people who bake, decorate and deliver every order with care.</p>
+            <p class="section-intro">The passionate people behind every loaf, pastry, and cake.</p>
+            
+            <div class="team-grid">
+                <!-- Team Member 1: Founder -->
+                <article class="team-member">
+                    <img src="images/team-amara.jpg" alt="Amara Dlamini, a smiling woman in her 40s with braided hair, wearing a white chef's jacket and holding a freshly baked sourdough loaf" width="250" height="300" loading="lazy">
+                    <h3>Amara Dlamini</h3>
+                    <p class="role">Founder & Head Baker</p>
+                    <p>Amara trained at Le Cordon Bleu in Paris before returning home to start Sweet Crumbs. She still personally crafts every sourdough starter and develops all new recipes. When she's not elbow-deep in flour, she's mentoring young bakers through her community programme.</p>
+                </article>
 
-            <!-- Team member 1 -->
-            <article class="team-member">
-                <img src="images/team-amara.jpg" alt="Amara Dlamini, founder and head baker, smiling while holding a fresh sourdough loaf in the bakery kitchen" />
-                <h3>Amara Dlamini</h3>
-                <p><strong>Founder and Head Baker</strong></p>
-                <p>Amara has been baking for over 15 years and started Sweet Crumbs from her home kitchen. She leads the kitchen team and sets the standards for everything that leaves the bakery. Her sourdough recipe is still a closely guarded secret.</p>
-            </article>
+                <!-- Team Member 2: Pastry Chef -->
+                <article class="team-member">
+                    <img src="images/team-sipho.jpg" alt="Sipho Nkosi, a young man in his late 20s with a neat beard, wearing chef's whites and piping decorations onto a celebration cake" width="250" height="300" loading="lazy">
+                    <h3>Sipho Nkosi</h3>
+                    <p class="role">Head Pastry Chef</p>
+                    <p>Sipho is the artist behind our stunning celebration cakes and delicate pastries. A graduate of the SA Chefs Academy, he brings creativity and precision to every creation. His specialty? Gravity-defying wedding cakes that taste as good as they look.</p>
+                </article>
 
-            <!-- Team member 2 -->
-            <article class="team-member">
-                <img src="images/team-sipho.jpg" alt="Sipho Nkosi, pastry chef, carefully rolling croissant dough on a flour dusted work bench" />
-                <h3>Sipho Nkosi</h3>
-                <p><strong>Pastry Chef</strong></p>
-                <p>Sipho trained at a prestigious pastry school in Paris before coming back to South Africa. He is responsible for all our pastries, croissants and Danish items. He currently holds the record for folding the most croissant layers in one morning.</p>
-            </article>
+                <!-- Team Member 3: Baker -->
+                <article class="team-member">
+                    <img src="images/team-lerato.jpg" alt="Lerato Molefe, a woman in her 30s with short natural hair, pulling a tray of golden croissants from a commercial oven" width="250" height="300" loading="lazy">
+                    <h3>Lerato Molefe</h3>
+                    <p class="role">Senior Baker</p>
+                    <p>Lerato has been with Sweet Crumbs since day one. She arrives at 3am every morning to start the ovens and manages our bread production. Her ciabatta has won "Best Artisan Bread" at the Joburg Food Festival three years running.</p>
+                </article>
 
-            <!-- Team member 3 -->
-            <article class="team-member">
-                <img src="images/team-lerato.jpg" alt="Lerato Molefe, cake designer, carefully piping flower decorations onto a white wedding cake" />
-                <h3>Lerato Molefe</h3>
-                <p><strong>Cake Designer</strong></p>
-                <p>Lerato studied fine arts before discovering her passion for cake design. She turns every custom cake order into an edible work of art. Her designs have been featured in local wedding magazines and her waiting list is always full.</p>
-            </article>
-
-            <!-- Team member 4 -->
-            <article class="team-member">
-                <img src="images/team-james.jpg" alt="James van der Berg, operations manager, reviewing delivery schedules on a clipboard outside the bakery" />
-                <h3>James van der Berg</h3>
-                <p><strong>Operations Manager</strong></p>
-                <p>James joined the team in 2018 and is the reason every order goes out on time and arrives in perfect condition. He manages the delivery schedule, stock ordering and makes sure the back of house runs smoothly every single day.</p>
-            </article>
-
+                <!-- Team Member 4: Manager -->
+                <article class="team-member">
+                    <img src="images/team-james.jpg" alt="James van der Berg, a man in his 50s with grey hair and glasses, standing behind the bakery counter with a warm smile" width="250" height="300" loading="lazy">
+                    <h3>James van der Berg</h3>
+                    <p class="role">Operations Manager</p>
+                    <p>James keeps everything running smoothly behind the scenes. With 20 years of hospitality experience, he ensures our customers always receive friendly service. He's also responsible for our popular "Baker for a Day" experience workshops.</p>
+                </article>
+            </div>
         </section>
 
-        <!-- Milestones / Our Journey section -->
-        <section class="milestones">
+        <!-- 
+            MILESTONES SECTION
+            Timeline of key events in the bakery's history.
+            Using ordered list as these are chronological events.
+        -->
+        <section class="milestones" id="milestones">
             <h2>Our Journey</h2>
-            <p>Here are some of the key moments that made Sweet Crumbs what it is today.</p>
-
-            <!-- Timeline list showing the bakery milestones -->
-            <ol>
+            <p class="section-intro">Key moments in the Sweet Crumbs story.</p>
+            
+            <ol class="timeline">
                 <li>
-                    <h3>2015 - The First Loaf</h3>
-                    <p>Sweet Crumbs started in Amara's home kitchen in Melville. The first sourdough loaves were sold at a local Saturday market. She sold out in 2 hours and had 30 pre-orders for the next weekend.</p>
+                    <span class="year">2015</span>
+                    <h3>The Beginning</h3>
+                    <p>Amara Dlamini begins selling sourdough loaves to friends and at the Neighbourgoods Market in Braamfontein.</p>
                 </li>
                 <li>
-                    <h3>2017 - First Physical Store</h3>
-                    <p>Sweet Crumbs moved into the current store at 12 Baker Street, Melville. The team grew to four full-time staff and delivery service launched across the surrounding suburbs.</p>
+                    <span class="year">2016</span>
+                    <h3>First Bakery Opens</h3>
+                    <p>Sweet Crumbs opens its doors on 7th Street, Melville with just 3 staff members and a single oven.</p>
                 </li>
                 <li>
-                    <h3>2019 - Custom Cake Range</h3>
-                    <p>The custom celebration cake range was launched and immediately became the fastest-growing part of the business. Lerato joined as the first dedicated cake designer.</p>
+                    <span class="year">2018</span>
+                    <h3>Custom Cake Launch</h3>
+                    <p>Sipho Nkosi joins the team and we launch our custom celebration cake service, which quickly becomes a major part of the business.</p>
                 </li>
                 <li>
-                    <h3>2021 - Going Sustainable</h3>
-                    <p>We switched to 100% compostable packaging and partnered with local urban farms so that all our flour is sourced within 100km of the bakery. Our carbon footprint dropped by over 40%.</p>
+                    <span class="year">2020</span>
+                    <h3>Surviving the Pandemic</h3>
+                    <p>We pivot to delivery-only during lockdown and launch our first online ordering system. Our customer base grows citywide.</p>
                 </li>
                 <li>
-                    <h3>2024 - Sandton City Kiosk</h3>
-                    <p>A second location opened inside Sandton City Shopping Centre. The kiosk now serves over 200 customers per day on weekends and helped us reach a whole new set of customers in the northern suburbs.</p>
+                    <span class="year">2022</span>
+                    <h3>Award Winners</h3>
+                    <p>Sweet Crumbs wins "Best Artisan Bakery" at the Eat Out Awards and "Best Sourdough in Gauteng" from the SA Baker's Guild.</p>
+                </li>
+                <li>
+                    <span class="year">2023</span>
+                    <h3>Sandton City Expansion</h3>
+                    <p>We open our second location—a kiosk in Sandton City Mall—bringing our products to the northern suburbs.</p>
+                </li>
+                <li>
+                    <span class="year">2024</span>
+                    <h3>Community Programme</h3>
+                    <p>Amara launches the "Young Bakers" programme, offering free training to 12 aspiring bakers from Soweto each year.</p>
+                </li>
+                <li>
+                    <span class="year">2026</span>
+                    <h3>Today</h3>
+                    <p>Sweet Crumbs serves over 500 customers daily across both locations and employs 28 staff members.</p>
                 </li>
             </ol>
-
         </section>
 
+        <!-- Call to Action -->
+        <section class="cta-banner" id="cta">
+            <h2>Want to Work With Us?</h2>
+            <p>We're always looking for passionate bakers to join our team. Or just come say hello!</p>
+            <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        </section>
     </main>
 
-    <!-- ================================================
-         FOOTER - same on every page
-    ================================================ -->
+    <!-- Footer - same structure as homepage -->
     <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Sweet Crumbs Bakery</h3>
+                <p>Artisan breads and pastries handcrafted with love in Johannesburg since 2015.</p>
+                <img src="images/logo-white.png" alt="Sweet Crumbs Bakery logo in white" width="120" height="48" loading="lazy">
+            </div>
 
-        <div>
-            <h3>Sweet Crumbs Bakery</h3>
-            <p>Handcrafted baked goods made with love in Johannesburg since 2015.</p>
-        </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="enquiry.html">Order Enquiry</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
 
-        <div>
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="enquiry.html">Enquiry</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <address>
+                    <p><strong>Melville:</strong> 27 7th Street, Melville, Johannesburg</p>
+                    <p><strong>Sandton:</strong> Shop 45, Sandton City Mall</p>
+                    <p>Phone: <a href="tel:+27114825500">011 482 5500</a></p>
+                    <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
+                </address>
+            </div>
 
-        <div>
-            <h4>Contact Us</h4>
-            <address>
-                <p>12 Baker Street, Melville, Johannesburg, 2092</p>
-                <p>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></p>
-                <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
-            </address>
-        </div>
-
-        <div>
-            <h4>Opening Hours</h4>
-            <ul>
-                <li>Monday to Friday: 06:00 - 18:00</li>
-                <li>Saturday: 07:00 - 15:00</li>
-                <li>Sunday: 08:00 - 13:00</li>
-            </ul>
+            <div class="footer-column">
+                <h3>Opening Hours</h3>
+                <ul class="hours-list">
+                    <li><strong>Monday - Friday:</strong> 6:30am - 6:00pm</li>
+                    <li><strong>Saturday:</strong> 7:00am - 4:00pm</li>
+                    <li><strong>Sunday:</strong> 8:00am - 2:00pm</li>
+                    <li><strong>Public Holidays:</strong> 8:00am - 12:00pm</li>
+                </ul>
+            </div>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
-            <p>Designed by Lesego Siziba | ST10515388 | WEDE5020</p>
+            <div class="social-links">
+                <a href="[facebook.com](https://facebook.com/sweetcrumbsjhb)" aria-label="Visit our Facebook page">
+                    <img src="images/icon-facebook.png" alt="" width="32" height="32">
+                </a>
+                <a href="[instagram.com](https://instagram.com/sweetcrumbsjhb)" aria-label="Visit our Instagram page">
+                    <img src="images/icon-instagram.png" alt="" width="32" height="32">
+                </a>
+                <a href="[wa.me](https://wa.me/27114825500)" aria-label="Contact us on WhatsApp">
+                    <img src="images/icon-whatsapp.png" alt="" width="32" height="32">
+                </a>
+            </div>
         </div>
-
     </footer>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
