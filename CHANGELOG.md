@@ -1,24 +1,29 @@
 # CHANGELOG
 
-All notable changes to this project will be documented in this file.
+ # Navigate to your project folder
+cd sweet-crumbs-bakery
 
-This project follows Semantic Versioning.
+# Initialize git if not already done
+git init
 
-## [1.0.0] 
-### Added
-- xyz
+# Add all files
+git add .
 
-### Changed
-- xyz
+# Commit with descriptive message
+git commit -m "Part 1 fixes: Complete HTML restructure with semantic elements, full content, working navigation, forms, and comments"
 
-### Fixed
-- xyz
+# Add remote repository (if not already added)
+git remote add origin [github.com](https://github.com/WEDE-5020-POE/wede-5020-poe-ST10515388-1.git)
 
-## Semantic Versioning
+# Push to repository
+git push -u origin main
 
-Format: MAJOR.MINOR.PATCH  
-Example: 2.1.3
+# For Part 2 CSS:
+git add css/style.css
+git commit -m "Part 2: Complete CSS stylesheet with variables, typography, layouts, and responsive design"
+git push
 
-- MAJOR → Breaking changes (1.0.0 → 2.0.0)  
-- MINOR → New features (1.0.0 → 1.1.0)  
-- PATCH → Bug fixes / small improvements (1.0.0 → 1.0.1)
+# Update README
+git add README.md
+git commit -m "Updated README with changelog, Part 1 fixes, and Part 2 details"
+git push
