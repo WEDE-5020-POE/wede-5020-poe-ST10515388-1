@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Sweet Crumbs Bakery - XML Sitemap
+    File: sitemap.xml
+    Student: Lesego Siziba | ST10515388 | WEDE5020 Part 3
+    Purpose: Helps search engines discover and index all pages.
+    Submit this URL to Google Search Console after deployment.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage - highest priority -->
+    <url>
+        <loc>https://sweetcrumbs.co.za/</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About page -->
+    <url>
+        <loc>https://sweetcrumbs.co.za/about.html</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Products page - high priority for SEO -->
+    <url>
+        <loc>https://sweetcrumbs.co.za/products.html</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Enquiry page -->
+    <url>
+        <loc>https://sweetcrumbs.co.za/enquiry.html</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact page -->
+    <url>
+        <loc>https://sweetcrumbs.co.za/contact.html</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
