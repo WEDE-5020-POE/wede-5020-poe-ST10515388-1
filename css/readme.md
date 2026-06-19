@@ -5,7 +5,7 @@
 **Student Number:** ST10515388  
 **Campus:** Varsity College Johannesburg (IIE)  
 **Submission:** Part 3 – JavaScript Enhancements, SEO and Deployment  
-**Part 3 Submission Date:** April 2026  
+**Part 3 Submission Date:** June 2026  
 
 ---
 
