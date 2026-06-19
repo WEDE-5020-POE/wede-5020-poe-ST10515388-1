@@ -3,7 +3,7 @@
 **Module:** WEDE5020 - Web Development (Introduction)  
 **Student Name:** Lesego Siziba  
 **Student Number:** ST10515388  
-**Campus:** Varsity College Johannesburg (IIE)  
+**Campus:** Rosebank International College (IIE)  
 **Submission:** Part 3 – JavaScript Enhancements, SEO and Deployment  
 **Part 3 Submission Date:** June 2026  
 
