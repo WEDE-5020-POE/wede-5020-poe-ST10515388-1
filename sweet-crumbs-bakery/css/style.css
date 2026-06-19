@@ -1,2327 +1,524 @@
-/* ============================================================
-   Sweet Crumbs Bakery - External Stylesheet
-   File: css/style.css
-   Student: Lesego Siziba
-   Student Number: ST10515388
-   Module: WEDE5020 - Web Development (Introduction)
-   Part 2 - CSS Styling and Responsive Design
+* ============================================================
+   Sweet Crumbs Bakery - Part 3 Additional Styles
+   File: css/part3.css
+   Student: Lesego Siziba | ST10515388
+   Module: WEDE5020 - Part 3
+
+   ADD THIS LINE to the <head> of every HTML page, AFTER style.css:
+   <link rel="stylesheet" href="css/part3.css" />
+
+   This file adds all new Part 3 visual components on top of the
+   existing Part 2 stylesheet without modifying it.
    ============================================================ */
 
 
 /* ============================================================
-   1. CSS RESET
-   Normalises default browser styles so the site looks
-   consistent across Chrome, Firefox, Safari and Edge.
-   ============================================================ */
+   1. SCROLL-TRIGGERED ANIMATIONS
+   Classes added/removed by IntersectionObserver in main.js
+============================================================ */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;  /* includes padding/border in element width */
-    margin: 0;
-    padding: 0;
+.pre-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-html {
-    scroll-behavior: smooth; /* smooth scrolling when clicking anchor links */
-}
-
-img {
-    max-width: 100%;         /* prevents images from overflowing their container */
-    display: block;
-    height: auto;
-}
-
-ul {
-    list-style: none;        /* remove bullet points from all lists */
-}
-
-a {
-    text-decoration: none;   /* remove underlines from all links */
-    color: inherit;
-}
-
-button {
-    cursor: pointer;
-    font-family: inherit;
-    border: none;
-    background: none;
-}
-
-
-/* ============================================================
-   2. CSS CUSTOM PROPERTIES (VARIABLES)
-   Defines the colour palette, typography scale and spacing
-   used consistently across the whole website.
-   ============================================================ */
-
-:root {
-    /* --- Colour Palette --- */
-    --colour-primary:       #8B4513;   /* saddle brown - warm, bread-like */
-    --colour-primary-dark:  #6B3410;   /* darker brown for hover states */
-    --colour-primary-light: #C4784E;   /* lighter brown for accents */
-    --colour-secondary:     #D4A96A;   /* warm golden wheat */
-    --colour-accent:        #E8C589;   /* pale golden highlight */
-    --colour-cream:         #FBF5EC;   /* off-white background */
-    --colour-cream-dark:    #F0E4CC;   /* slightly darker cream for sections */
-    --colour-text-dark:     #2C1810;   /* near-black for main text */
-    --colour-text-mid:      #5A3E32;   /* medium brown for body copy */
-    --colour-text-light:    #8D7260;   /* muted text, captions */
-    --colour-white:         #FFFFFF;
-    --colour-border:        #E0C9A6;   /* subtle border colour */
-    --colour-error:         #C0392B;   /* red for form error messages */
-    --colour-success:       #27AE60;   /* green for success messages */
-
-    /* --- Typography --- */
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-body:    'Lato', Arial, sans-serif;
-
-    /* Font size scale using rem (root em) for accessibility */
-    --text-xs:   0.75rem;   /*  12px */
-    --text-sm:   0.875rem;  /*  14px */
-    --text-base: 1rem;      /*  16px */
-    --text-md:   1.125rem;  /*  18px */
-    --text-lg:   1.25rem;   /*  20px */
-    --text-xl:   1.5rem;    /*  24px */
-    --text-2xl:  2rem;      /*  32px */
-    --text-3xl:  2.5rem;    /*  40px */
-    --text-4xl:  3rem;      /*  48px */
-
-    /* Font weights */
-    --weight-normal: 400;
-    --weight-medium: 500;
-    --weight-bold:   700;
-
-    /* Line heights */
-    --leading-tight:  1.25;
-    --leading-normal: 1.6;
-    --leading-loose:  1.8;
-
-    /* --- Spacing Scale --- */
-    --space-xs:  0.25rem;  /*  4px */
-    --space-sm:  0.5rem;   /*  8px */
-    --space-md:  1rem;     /* 16px */
-    --space-lg:  1.5rem;   /* 24px */
-    --space-xl:  2rem;     /* 32px */
-    --space-2xl: 3rem;     /* 48px */
-    --space-3xl: 4rem;     /* 64px */
-    --space-4xl: 6rem;     /* 96px */
-
-    /* --- Layout --- */
-    --max-width:      1200px;  /* maximum content width */
-    --container-pad:  1.5rem;  /* side padding on the container */
-
-    /* --- Border radius --- */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 16px;
-    --radius-full: 50px;   /* pill shape */
-
-    /* --- Shadows --- */
-    --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.12);
-    --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.15);
-    --shadow-xl:  0 16px 48px rgba(0, 0, 0, 0.18);
-
-    /* --- Transitions --- */
-    --transition-fast:   150ms ease;
-    --transition-normal: 250ms ease;
-    --transition-slow:   400ms ease;
-}
-
-
-/* ============================================================
-   3. GOOGLE FONTS IMPORT
-   Imports Playfair Display (headings) and Lato (body text).
-   Using @import inside the CSS file keeps the HTML clean.
-   ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
-
-
-/* ============================================================
-   4. BASE / GLOBAL STYLES
-   Applied to the whole site through the cascade.
-   ============================================================ */
-
-body {
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: var(--weight-normal);
-    line-height: var(--leading-normal);
-    color: var(--colour-text-dark);
-    background-color: var(--colour-cream);
-}
-
-/* --- Headings --- */
-/* All headings use Playfair Display for an elegant, bakery feel */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: var(--weight-bold);
-    line-height: var(--leading-tight);
-    color: var(--colour-text-dark);
-    margin-bottom: var(--space-md);
-}
-
-h1 { font-size: var(--text-3xl); }
-h2 { font-size: var(--text-2xl); }
-h3 { font-size: var(--text-xl); }
-h4 { font-size: var(--text-lg); }
-h5 { font-size: var(--text-md); }
-h6 { font-size: var(--text-base); }
-
-/* --- Paragraphs --- */
-p {
-    margin-bottom: var(--space-md);
-    color: var(--colour-text-mid);
-    line-height: var(--leading-loose);
-}
-
-p:last-child {
-    margin-bottom: 0;
-}
-
-/* --- Links --- */
-a {
-    color: var(--colour-primary);
-    transition: color var(--transition-fast);
-}
-
-a:hover,
-a:focus {
-    color: var(--colour-primary-dark);
-}
-
-/* --- Focus styles for accessibility --- */
-/* Visible focus ring for keyboard users */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid var(--colour-secondary);
-    outline-offset: 2px;
-}
-
-/* --- Horizontal rule --- */
-hr {
-    border: none;
-    border-top: 1px solid var(--colour-border);
-    margin: var(--space-2xl) 0;
-}
-
-
-/* ============================================================
-   5. LAYOUT UTILITIES
-   Reusable layout helpers applied with classes.
-   ============================================================ */
-
-/* Container - centres content and limits width */
-.container {
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--container-pad);
-    padding-right: var(--container-pad);
-}
-
-/* Section spacing - consistent vertical rhythm between sections */
-.section-pad {
-    padding-top: var(--space-4xl);
-    padding-bottom: var(--space-4xl);
-}
-
-/* Section heading centred with decorative underline */
-.section-heading {
-    text-align: center;
-    margin-bottom: var(--space-2xl);
-}
-
-.section-heading h2 {
-    font-size: var(--text-2xl);
-    color: var(--colour-text-dark);
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-}
-
-/* Decorative line under section headings using ::after pseudo-element */
-.section-heading h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
-}
-
-.section-heading p {
-    color: var(--colour-text-light);
-    font-size: var(--text-md);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Screen-reader only - visually hidden but accessible to screen readers */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-
-/* ============================================================
-   6. BUTTON STYLES
-   Two button variants used throughout the site.
-   ============================================================ */
-
-/* Primary button - solid brown */
-.btn-primary {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: var(--weight-bold);
-    border-radius: var(--radius-full);
-    border: 2px solid var(--colour-primary);
-    transition: background-color var(--transition-normal),
-                border-color var(--transition-normal),
-                transform var(--transition-fast),
-                box-shadow var(--transition-normal);
-    text-align: center;
-    letter-spacing: 0.03em;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: var(--colour-primary-dark);
-    border-color: var(--colour-primary-dark);
-    color: var(--colour-white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-/* Secondary button - outline style */
-.btn-secondary {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    background-color: transparent;
-    color: var(--colour-white);
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: var(--weight-bold);
-    border-radius: var(--radius-full);
-    border: 2px solid var(--colour-white);
-    transition: background-color var(--transition-normal),
-                color var(--transition-normal),
-                transform var(--transition-fast);
-    text-align: center;
-    letter-spacing: 0.03em;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-    background-color: var(--colour-white);
-    color: var(--colour-primary);
-    transform: translateY(-2px);
-}
-
-/* Outline button on light backgrounds */
-.btn-outline {
-    display: inline-block;
-    padding: 0.6rem 1.5rem;
-    background-color: transparent;
-    color: var(--colour-primary);
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-bold);
-    border-radius: var(--radius-full);
-    border: 2px solid var(--colour-primary);
-    transition: background-color var(--transition-normal),
-                color var(--transition-normal);
-    text-align: center;
-}
-
-.btn-outline:hover,
-.btn-outline:focus {
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-}
-
-
-/* ============================================================
-   7. HEADER AND NAVIGATION
-   Fixed header at the top with logo and navigation links.
-   ============================================================ */
-
-header {
-    position: sticky;          /* sticks to top while scrolling */
-    top: 0;
-    z-index: 100;              /* ensures header appears above all other content */
-    background-color: var(--colour-white);
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-md) var(--space-2xl);
-    gap: var(--space-md);
-}
-
-/* Logo area - flex container for icon + text */
-.logo a {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    text-decoration: none;
-}
-
-.logo img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: var(--radius-full);
-}
-
-/* Fallback when logo image is missing: show a styled placeholder */
-.logo img[src="images/logo.png"]:not([data-loaded]) {
-    display: none;
-}
-
-.logo span {
-    font-family: var(--font-heading);
-    font-size: var(--text-lg);
-    font-weight: var(--weight-bold);
-    color: var(--colour-primary);
-    white-space: nowrap;
-}
-
-/* Navigation list */
-nav ul {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    list-style: none;
-}
-
-/* Individual navigation links */
-nav a {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-bold);
-    color: var(--colour-text-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: var(--space-xs) 0;
-    position: relative;
-    transition: color var(--transition-fast);
-}
-
-/* Animated underline on navigation links using ::after pseudo-element */
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--colour-primary);
-    transition: width var(--transition-normal);
-}
-
-nav a:hover,
-nav a:focus {
-    color: var(--colour-primary);
-}
-
-nav a:hover::after,
-nav a:focus::after {
-    width: 100%;
-}
-
-/* Active page indicator */
-nav a.active {
-    color: var(--colour-primary);
-}
-
-nav a.active::after {
-    width: 100%;
-}
-
-/* Hamburger menu button - hidden on desktop, shown on mobile */
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--space-sm);
-}
-
-.nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--colour-text-dark);
-    border-radius: var(--radius-full);
-    transition: transform var(--transition-normal),
-                opacity var(--transition-normal);
-}
-
-
-/* ============================================================
-   8. PAGE BANNER
-   Used on all inner pages (About, Products, Enquiry, Contact)
-   as a decorative heading section below the header.
-   ============================================================ */
-
-.page-banner {
-    background-color: var(--colour-primary);
-    /* Gradient overlay for depth */
-    background-image: linear-gradient(
-        135deg,
-        var(--colour-primary-dark) 0%,
-        var(--colour-primary) 50%,
-        var(--colour-primary-light) 100%
-    );
-    color: var(--colour-white);
-    text-align: center;
-    padding: var(--space-3xl) var(--space-xl);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Decorative circle in the background of the banner */
-.page-banner::before {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.06);
-}
-
-.page-banner::after {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    left: -40px;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.04);
-}
-
-.page-banner h1 {
-    color: var(--colour-white);
-    font-size: var(--text-3xl);
-    margin-bottom: var(--space-sm);
-    position: relative;
-    z-index: 1;
-}
-
-.page-banner p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: var(--text-md);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 1;
-}
-
-
-/* ============================================================
-   9. HERO SECTION (Homepage)
-   Full-width image with overlay text and CTA buttons.
-   ============================================================ */
-
-.hero {
-    position: relative;
-    min-height: 85vh;          /* takes up most of the viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: var(--colour-primary-dark);
-}
-
-/* The hero background image */
-.hero > img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;         /* fills the area without distortion */
-    object-position: center;
-}
-
-/* Dark overlay on top of the image so text is readable */
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(44, 24, 16, 0.3) 0%,
-        rgba(44, 24, 16, 0.65) 100%
-    );
-}
-
-/* Text content sits above the overlay using z-index */
-.hero-text {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: var(--colour-white);
-    max-width: 800px;
-    padding: var(--space-xl);
-}
-
-.hero-text h1 {
-    font-size: var(--text-4xl);
-    color: var(--colour-white);
-    margin-bottom: var(--space-lg);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-.hero-text p {
-    font-size: var(--text-lg);
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: var(--space-2xl);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Flex container for the two CTA buttons */
-.hero-text .hero-buttons {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* If buttons are direct <a> children of hero-text */
-.hero-text > a:first-of-type {
-    display: inline-block;
-    padding: 0.875rem 2rem;
-    background-color: var(--colour-secondary);
-    color: var(--colour-text-dark);
-    font-weight: var(--weight-bold);
-    border-radius: var(--radius-full);
-    border: 2px solid var(--colour-secondary);
-    transition: background-color var(--transition-normal), transform var(--transition-fast);
-    font-size: var(--text-md);
-    letter-spacing: 0.03em;
-}
-
-.hero-text > a:first-of-type:hover {
-    background-color: var(--colour-accent);
-    border-color: var(--colour-accent);
-    transform: translateY(-2px);
-}
-
-.hero-text > a:last-of-type {
-    display: inline-block;
-    padding: 0.875rem 2rem;
-    background-color: transparent;
-    color: var(--colour-white);
-    font-weight: var(--weight-bold);
-    border-radius: var(--radius-full);
-    border: 2px solid var(--colour-white);
-    transition: background-color var(--transition-normal),
-                color var(--transition-normal),
-                transform var(--transition-fast);
-    font-size: var(--text-md);
-    letter-spacing: 0.03em;
-}
-
-.hero-text > a:last-of-type:hover {
-    background-color: var(--colour-white);
-    color: var(--colour-primary);
-    transform: translateY(-2px);
-}
-
-
-/* ============================================================
-   10. FEATURES SECTION (Homepage)
-   4-column grid of feature cards.
-   ============================================================ */
-
-.features {
-    background-color: var(--colour-white);
-    padding: var(--space-4xl) var(--space-2xl);
-    text-align: center;
-}
-
-.features h2 {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-2xl);
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-}
-
-.features h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
-}
-
-/* 4-column CSS Grid layout for the feature cards */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-/* Individual feature card */
-.features article {
-    padding: var(--space-xl);
-    border-radius: var(--radius-lg);
-    background-color: var(--colour-cream);
-    border: 1px solid var(--colour-border);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.features article:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
-}
-
-/* Feature icon */
-.features article img {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto var(--space-md);
-    object-fit: contain;
-}
-
-/* Fallback icon styling when image is missing */
-.features article img[src*="icon"] {
-    padding: var(--space-sm);
-    background-color: var(--colour-accent);
-    border-radius: var(--radius-full);
-}
-
-.features article h3 {
-    font-size: var(--text-lg);
-    color: var(--colour-primary);
-    margin-bottom: var(--space-sm);
-}
-
-.features article p {
-    font-size: var(--text-sm);
-    color: var(--colour-text-light);
-    line-height: var(--leading-loose);
-}
-
-/* Apply features grid directly to features section children if no grid div */
-.features > article {
-    padding: var(--space-xl);
-    border-radius: var(--radius-lg);
-    background-color: var(--colour-cream);
-    border: 1px solid var(--colour-border);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-/* Inline grid applied to the features section using CSS Grid auto-columns */
-.features {
-    display: block;
-}
-
-/* Target the articles directly inside .features for the grid layout */
-.features > h2 {
-    margin-bottom: var(--space-2xl);
-}
-
-/* Grid wrapper created implicitly - target articles as a group */
-/* The 4 feature articles will be styled as grid items */
-.features article + article {
-    /* sibling articles flow into grid - set on parent via JS or direct grid below */
-}
-
-
-/* ============================================================
-   11. POPULAR PRODUCTS SECTION (Homepage)
-   3-column grid of product preview cards.
-   ============================================================ */
-
-.popular-products {
-    background-color: var(--colour-cream-dark);
-    padding: var(--space-4xl) var(--space-2xl);
-    text-align: center;
-}
-
-.popular-products h2 {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-sm);
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-}
-
-.popular-products h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
-}
-
-.popular-products > p {
-    color: var(--colour-text-light);
-    margin-bottom: var(--space-2xl);
-}
-
-/* CSS Grid: 3 columns for product cards */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
-    max-width: var(--max-width);
-    margin: 0 auto var(--space-2xl);
-}
-
-/* Product card styles - shared between homepage and products page */
-.product-card {
-    background-color: var(--colour-white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;           /* ensures image stays within rounded corners */
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--colour-border);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-    text-align: left;
-}
-
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
-}
-
-.product-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;         /* crop image to fit height without distortion */
-    transition: transform var(--transition-slow);
-}
-
-.product-card:hover img {
-    transform: scale(1.05);    /* subtle zoom on hover */
-}
-
-/* Text content inside the product card */
-.product-card-body {
-    padding: var(--space-lg);
-}
-
-.product-card h3 {
-    font-size: var(--text-lg);
-    color: var(--colour-text-dark);
-    margin-bottom: var(--space-sm);
-}
-
-.product-card p {
-    font-size: var(--text-sm);
-    color: var(--colour-text-light);
-    margin-bottom: var(--space-md);
-    line-height: var(--leading-loose);
-}
-
-/* Price displayed in the bakery's primary colour */
-.product-card .price {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-bold);
-    color: var(--colour-primary);
-    margin-bottom: var(--space-md);
-}
-
-/* Apply card body padding to direct p/h3/a children if no card-body div */
-.product-card > h3,
-.product-card > p,
-.product-card > a {
-    padding-left: var(--space-lg);
-    padding-right: var(--space-lg);
-}
-
-.product-card > h3 {
-    padding-top: var(--space-lg);
-    margin-bottom: var(--space-sm);
-}
-
-.product-card > a {
-    display: inline-block;
-    margin: var(--space-sm) var(--space-lg) var(--space-lg);
-    padding: 0.5rem 1.25rem;
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-bold);
-    transition: background-color var(--transition-fast);
-}
-
-.product-card > a:hover {
-    background-color: var(--colour-primary-dark);
-}
-
-/* "View All Products" link below the grid */
-.popular-products > a {
-    display: inline-block;
-    margin-top: var(--space-md);
-    padding: 0.75rem 2rem;
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-    border-radius: var(--radius-full);
-    font-weight: var(--weight-bold);
-    transition: background-color var(--transition-normal), transform var(--transition-fast);
-}
-
-.popular-products > a:hover {
-    background-color: var(--colour-primary-dark);
-    transform: translateY(-2px);
-}
-
-/* Apply grid to articles directly inside popular-products */
-.popular-products > article {
-    background-color: var(--colour-white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--colour-border);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-    text-align: left;
-}
-
-.popular-products > article:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
-}
-
-.popular-products > article img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-/* Grid applied to the section itself for direct article children */
-.popular-products {
-    display: block;
-}
-
-
-/* ============================================================
-   12. TESTIMONIALS SECTION (Homepage)
-   3-column layout for customer review blockquotes.
-   ============================================================ */
-
-.testimonials {
-    background-color: var(--colour-primary);
-    padding: var(--space-4xl) var(--space-2xl);
-    text-align: center;
-}
-
-.testimonials h2 {
-    color: var(--colour-white);
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-2xl);
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-}
-
-.testimonials h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
-}
-
-/* Flex layout to align blockquotes side by side */
-.testimonials-grid {
-    display: flex;
-    gap: var(--space-xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-    flex-wrap: wrap;
-}
-
-/* Individual review card */
-.testimonials blockquote {
-    flex: 1;
-    min-width: 260px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-left: 4px solid var(--colour-secondary);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    text-align: left;
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
-}
-
-.testimonials blockquote:hover {
-    transform: translateY(-4px);
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.testimonials blockquote p {
-    color: rgba(255, 255, 255, 0.92);
-    font-size: var(--text-md);
-    font-style: italic;
-    line-height: var(--leading-loose);
-    margin-bottom: var(--space-lg);
-}
-
-/* Customer name / attribution */
-.testimonials blockquote footer {
-    color: var(--colour-secondary);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-bold);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
-
-/* ============================================================
-   13. CALL TO ACTION SECTION (Homepage)
-   Full-width banner encouraging users to get in touch.
-   ============================================================ */
-
-.cta {
-    background-color: var(--colour-cream-dark);
-    background-image: linear-gradient(135deg, var(--colour-cream) 0%, var(--colour-cream-dark) 100%);
-    padding: var(--space-4xl) var(--space-xl);
-    text-align: center;
-    border-top: 1px solid var(--colour-border);
-    border-bottom: 1px solid var(--colour-border);
-}
-
-.cta h2 {
-    font-size: var(--text-2xl);
-    color: var(--colour-text-dark);
-    margin-bottom: var(--space-md);
-}
-
-.cta p {
-    color: var(--colour-text-light);
-    font-size: var(--text-md);
-    max-width: 600px;
-    margin: 0 auto var(--space-xl);
-}
-
-.cta a {
-    display: inline-block;
-    padding: 0.875rem 2.5rem;
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-    border-radius: var(--radius-full);
-    font-weight: var(--weight-bold);
-    font-size: var(--text-md);
-    letter-spacing: 0.03em;
-    transition: background-color var(--transition-normal), transform var(--transition-fast);
-}
-
-.cta a:hover {
-    background-color: var(--colour-primary-dark);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-
-/* ============================================================
-   14. FOOTER
-   4-column grid with branding, links, contact and hours.
-   ============================================================ */
-
-footer {
-    background-color: var(--colour-text-dark);
-    color: rgba(255, 255, 255, 0.8);
-    padding: var(--space-3xl) var(--space-2xl) var(--space-xl);
-
-    /* CSS Grid: 4 columns for footer content */
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: var(--space-2xl);
-    max-width: 100%;
-}
-
-footer h3 {
-    color: var(--colour-white);
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-md);
-}
-
-footer h4 {
-    color: var(--colour-secondary);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-md);
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.65);
-    font-size: var(--text-sm);
-    line-height: var(--leading-loose);
-}
-
-footer ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-footer ul li a {
-    color: rgba(255, 255, 255, 0.65);
-    font-size: var(--text-sm);
-    transition: color var(--transition-fast);
-}
-
-footer ul li a:hover {
-    color: var(--colour-secondary);
-}
-
-/* address element - removes italic by default */
-footer address {
-    font-style: normal;
-}
-
-footer address p {
-    color: rgba(255, 255, 255, 0.65);
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-sm);
-}
-
-footer address a {
-    color: rgba(255, 255, 255, 0.65);
-    transition: color var(--transition-fast);
-}
-
-footer address a:hover {
-    color: var(--colour-secondary);
-}
-
-/* Footer bottom strip - copyright */
-.footer-bottom {
-    grid-column: 1 / -1;       /* spans all 4 columns */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: var(--space-lg);
-    margin-top: var(--space-md);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-}
-
-.footer-bottom p {
-    font-size: var(--text-xs);
-    color: rgba(255, 255, 255, 0.45);
-}
-
-
-/* ============================================================
-   15. ABOUT PAGE STYLES
-   Story, mission/vision, team, and milestones sections.
-   ============================================================ */
-
-/* Our Story section - two column layout: text + image */
-.our-story {
-    padding: var(--space-4xl) var(--space-2xl);
-    background-color: var(--colour-white);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3xl);
-    align-items: center;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.our-story h2 {
-    font-size: var(--text-2xl);
-    color: var(--colour-primary);
-    margin-bottom: var(--space-lg);
-}
-
-.our-story img {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-
-/* Mission, Vision, Values - 3 column card grid */
-.mission-vision {
-    background-color: var(--colour-cream-dark);
-    padding: var(--space-4xl) var(--space-2xl);
-    text-align: center;
-}
-
-.mission-vision h2 {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-2xl);
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-}
-
-.mission-vision h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
-}
-
-.mission-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.mission-grid article {
-    background-color: var(--colour-white);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    border-top: 4px solid var(--colour-primary);
-    box-shadow: var(--shadow-sm);
-    text-align: left;
-}
-
-.mission-grid article h3 {
-    color: var(--colour-primary);
-    margin-bottom: var(--space-md);
-}
-
-/* Team section - 4 column grid */
-.team {
-    background-color: var(--colour-white);
-    padding: var(--space-4xl) var(--space-2xl);
-    text-align: center;
-}
-
-.team h2 {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-2xl);
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-}
-
-.team h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-/* Team member card */
-.team-grid article {
-    text-align: center;
-    transition: transform var(--transition-normal);
-}
-
-.team-grid article:hover {
-    transform: translateY(-6px);
-}
-
-.team-grid article img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto var(--space-md);
-    border: 4px solid var(--colour-accent);
-    box-shadow: var(--shadow-md);
-}
-
-.team-grid article h3 {
-    font-size: var(--text-lg);
-    color: var(--colour-text-dark);
-    margin-bottom: var(--space-xs);
-}
-
-.team-grid article p {
-    font-size: var(--text-sm);
-    color: var(--colour-text-light);
-}
-
-/* Milestones - ordered list timeline */
-.milestones {
-    background-color: var(--colour-cream-dark);
-    padding: var(--space-4xl) var(--space-2xl);
-}
-
-.milestones h2 {
-    text-align: center;
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-2xl);
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.milestones h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
-}
-
-.milestones ol {
-    max-width: 700px;
-    margin: 0 auto;
-    list-style: none;
-    position: relative;
-}
-
-/* Vertical line running through the timeline */
-.milestones ol::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--colour-border);
-}
-
-.milestones ol li {
-    position: relative;
-    padding: var(--space-md) var(--space-md) var(--space-md) var(--space-3xl);
-    margin-bottom: var(--space-md);
-    background-color: var(--colour-white);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--colour-border);
-}
-
-/* Circle marker for each milestone */
-.milestones ol li::before {
-    content: '';
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: var(--colour-primary);
-    border: 3px solid var(--colour-white);
-    box-shadow: 0 0 0 2px var(--colour-primary);
-    z-index: 1;
-}
-
-
-/* ============================================================
-   16. PRODUCTS PAGE STYLES
-   Category headings and 3-column product card grids.
-   ============================================================ */
-
-.products-page {
-    padding: var(--space-3xl) var(--space-2xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-/* Category section header - bold label above each product grid */
-.product-category {
-    margin-bottom: var(--space-3xl);
-}
-
-.product-category h2 {
-    font-size: var(--text-xl);
-    color: var(--colour-primary);
-    padding-bottom: var(--space-sm);
-    border-bottom: 3px solid var(--colour-secondary);
-    margin-bottom: var(--space-xl);
-    display: inline-block;
-}
-
-/* 3-column grid for product cards */
-.product-category .product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
-}
-
-/* Product card on the products page */
-.product-category .product-card {
-    background-color: var(--colour-white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--colour-border);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.product-category .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
-}
-
-.product-category .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-}
-
-.product-category .product-card:hover img {
-    transform: scale(1.05);
-}
-
-.product-category .product-card h3 {
-    padding: var(--space-md) var(--space-lg) 0;
-    font-size: var(--text-md);
-}
-
-.product-category .product-card p {
-    padding: var(--space-sm) var(--space-lg);
-    font-size: var(--text-sm);
-    color: var(--colour-text-light);
-}
-
-/* Product detail list (weight, allergens, etc.) */
-.product-category .product-card ul {
-    padding: 0 var(--space-lg);
-    margin-bottom: var(--space-md);
-    list-style: disc;
-    list-style-position: inside;
-}
-
-.product-category .product-card ul li {
-    font-size: var(--text-xs);
-    color: var(--colour-text-light);
-    margin-bottom: var(--space-xs);
-}
-
-/* Order link inside product card */
-.product-category .product-card a {
-    display: inline-block;
-    margin: 0 var(--space-lg) var(--space-lg);
-    padding: 0.5rem 1.25rem;
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-bold);
-    transition: background-color var(--transition-fast);
-}
-
-.product-category .product-card a:hover {
-    background-color: var(--colour-primary-dark);
-}
-
-
-/* ============================================================
-   17. ENQUIRY PAGE STYLES
-   Two-column layout: form on the left, info sidebar on the right.
-   ============================================================ */
-
-.enquiry-section {
-    padding: var(--space-3xl) var(--space-2xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 340px;  /* form takes remaining space, sidebar fixed */
-    gap: var(--space-2xl);
-    align-items: start;
-}
-
-.enquiry-intro {
-    grid-column: 1 / -1;
-    margin-bottom: var(--space-lg);
-}
-
-.enquiry-intro h2 {
-    color: var(--colour-primary);
-}
-
-
-/* ============================================================
-   18. FORM STYLES
-   Shared between enquiry.html and contact.html forms.
-   ============================================================ */
-
-/* The form element */
-form {
-    background-color: var(--colour-white);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--colour-border);
-}
-
-/* Fieldset - groups related form fields */
-fieldset {
-    border: 1px solid var(--colour-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-xl);
-    margin-bottom: var(--space-xl);
-}
-
-fieldset:last-of-type {
-    margin-bottom: 0;
-}
-
-/* Legend - the fieldset label */
-legend {
-    font-family: var(--font-heading);
-    font-size: var(--text-lg);
-    font-weight: var(--weight-bold);
-    color: var(--colour-primary);
-    padding: 0 var(--space-sm);
-}
-
-/* Form group - wraps label + input pair */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-lg);
-}
-
-.form-group:last-child {
-    margin-bottom: 0;
-}
-
-/* Form label */
-label {
-    font-size: var(--text-sm);
-    font-weight: var(--weight-bold);
-    color: var(--colour-text-dark);
-}
-
-/* Required field asterisk */
-label .required {
-    color: var(--colour-error);
-    margin-left: var(--space-xs);
-}
-
-/* Text inputs, email, tel, number, date, select */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="date"],
-select,
-textarea {
-    width: 100%;
-    padding: 0.65rem var(--space-md);
-    border: 2px solid var(--colour-border);
-    border-radius: var(--radius-md);
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    color: var(--colour-text-dark);
-    background-color: var(--colour-cream);
-    transition: border-color var(--transition-fast),
-                box-shadow var(--transition-fast),
-                background-color var(--transition-fast);
-    -webkit-appearance: none;    /* removes Safari default styling */
-    appearance: none;
-}
-
-/* Focus state on form fields */
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="number"]:focus,
-input[type="date"]:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--colour-primary);
-    background-color: var(--colour-white);
-    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
-}
-
-/* Textarea */
-textarea {
-    resize: vertical;           /* user can resize vertically only */
-    min-height: 120px;
-    line-height: var(--leading-loose);
-}
-
-/* Custom select arrow */
-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B4513' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
-    cursor: pointer;
-}
-
-/* Radio buttons and checkboxes */
-input[type="radio"],
-input[type="checkbox"] {
-    width: auto;
-    margin-right: var(--space-sm);
-    accent-color: var(--colour-primary);  /* colours the checkbox/radio in modern browsers */
-    cursor: pointer;
-}
-
-/* Radio / checkbox label inline */
-.radio-group,
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.radio-group label,
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    font-weight: var(--weight-normal);
-    cursor: pointer;
-}
-
-/* Form submission button */
-.form-submit {
-    display: inline-block;
-    padding: 0.875rem 2.5rem;
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-    border: none;
-    border-radius: var(--radius-full);
-    font-family: var(--font-body);
-    font-size: var(--text-md);
-    font-weight: var(--weight-bold);
-    letter-spacing: 0.03em;
-    cursor: pointer;
-    transition: background-color var(--transition-normal),
-                transform var(--transition-fast),
-                box-shadow var(--transition-normal);
-    margin-top: var(--space-lg);
-}
-
-.form-submit:hover {
-    background-color: var(--colour-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.form-submit:active {
+.fade-in-up {
+    opacity: 1;
     transform: translateY(0);
 }
 
-/* Error messages below invalid fields */
-.error-message {
-    font-size: var(--text-xs);
-    color: var(--colour-error);
-    margin-top: var(--space-xs);
-    display: none;              /* hidden by default, shown by JS */
+
+/* ============================================================
+   2. BREADCRUMB NAVIGATION
+============================================================ */
+
+.breadcrumb {
+    padding: 0.75rem var(--container-pad, 1.5rem);
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto 1rem;
 }
 
-/* Success/confirmation message */
-.success-message {
-    background-color: rgba(39, 174, 96, 0.1);
-    border: 1px solid var(--colour-success);
-    border-left: 4px solid var(--colour-success);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    color: var(--colour-success);
-    font-weight: var(--weight-medium);
-    display: none;              /* shown by JS after successful submission */
-    margin-top: var(--space-lg);
-}
-
-/* Enquiry info sidebar */
-.enquiry-sidebar,
-.contact-sidebar {
+.breadcrumb ol {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-}
-
-.sidebar-card {
-    background-color: var(--colour-white);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--colour-border);
-}
-
-.sidebar-card h3 {
-    font-size: var(--text-lg);
-    color: var(--colour-primary);
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-sm);
-    border-bottom: 2px solid var(--colour-accent);
-}
-
-.sidebar-card p {
-    font-size: var(--text-sm);
-    color: var(--colour-text-light);
-}
-
-.sidebar-card ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--colour-text-light, #8D7260);
 }
 
-.sidebar-card ul li {
-    font-size: var(--text-sm);
-    color: var(--colour-text-mid);
-    padding: var(--space-sm) var(--space-md);
-    background-color: var(--colour-cream);
-    border-radius: var(--radius-sm);
+.breadcrumb li + li::before {
+    content: '›';
+    margin-right: 0.5rem;
+    color: var(--colour-secondary, #D4A96A);
+}
+
+.breadcrumb a {
+    color: var(--colour-primary, #8B4513);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb li[aria-current="page"] {
+    color: var(--colour-text-dark, #2C1810);
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   3. ACCORDION (Products page)
+============================================================ */
+
+.accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    background: var(--colour-cream-dark, #F0E4CC);
+    border: 2px solid var(--colour-border, #E0C9A6);
+    border-radius: var(--radius-md, 8px);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition-normal, 250ms ease), border-color var(--transition-normal, 250ms ease);
+    margin-bottom: 0;
 }
 
-.sidebar-card ul li span:last-child {
-    font-weight: var(--weight-bold);
-    color: var(--colour-primary);
+.accordion-header h2 {
+    margin: 0;
+    font-size: var(--text-xl, 1.5rem);
+    color: var(--colour-text-dark, #2C1810);
+}
+
+.accordion-header:hover,
+.accordion-header:focus-visible {
+    background: var(--colour-accent, #E8C589);
+    border-color: var(--colour-primary, #8B4513);
+    outline: none;
+}
+
+.accordion-header.accordion-open {
+    background: var(--colour-primary, #8B4513);
+    border-color: var(--colour-primary-dark, #6B3410);
+}
+
+.accordion-header.accordion-open h2 {
+    color: var(--colour-white, #FFFFFF);
+}
+
+/* Animated chevron icon */
+.accordion-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-right: 3px solid currentColor;
+    border-bottom: 3px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform var(--transition-normal, 250ms ease);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.accordion-header.accordion-open .accordion-icon {
+    transform: rotate(-135deg);
+}
+
+/* Accordion body - collapsed by default, max-height animated by JS */
+.accordion-body {
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.category-intro {
+    font-size: var(--text-md, 1.125rem);
+    color: var(--colour-text-mid, #5A3E32);
+    margin-bottom: 1.5rem;
+}
+
+.product-category {
+    margin-bottom: 1.5rem;
 }
 
 
 /* ============================================================
-   19. CONTACT PAGE STYLES
-   Location cards, map container and two-column layout.
-   ============================================================ */
+   4. TABS (Contact page map switcher)
+============================================================ */
 
-.contact-section {
-    padding: var(--space-3xl) var(--space-2xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: var(--space-2xl);
-    align-items: start;
+.map-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0;
+    border-bottom: 2px solid var(--colour-border, #E0C9A6);
 }
 
-/* Location cards above the form */
-.locations {
-    background-color: var(--colour-cream-dark);
-    padding: var(--space-2xl) var(--space-2xl) 0;
-    max-width: 100%;
+.map-tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--colour-cream-dark, #F0E4CC);
+    border: 2px solid var(--colour-border, #E0C9A6);
+    border-bottom: none;
+    border-radius: var(--radius-md, 8px) var(--radius-md, 8px) 0 0;
+    font-family: var(--font-body, sans-serif);
+    font-size: var(--text-base, 1rem);
+    font-weight: 600;
+    color: var(--colour-text-mid, #5A3E32);
+    cursor: pointer;
+    transition: background var(--transition-fast, 150ms ease), color var(--transition-fast, 150ms ease);
 }
 
-.locations h2 {
+.map-tab-btn:hover,
+.map-tab-btn:focus-visible {
+    background: var(--colour-accent, #E8C589);
+    color: var(--colour-text-dark, #2C1810);
+    outline: none;
+}
+
+.map-tab-btn.tab-active {
+    background: var(--colour-primary, #8B4513);
+    border-color: var(--colour-primary, #8B4513);
+    color: var(--colour-white, #FFFFFF);
+}
+
+/* Tab panels */
+.map-panels {
+    border: 2px solid var(--colour-border, #E0C9A6);
+    border-top: none;
+    border-radius: 0 var(--radius-md, 8px) var(--radius-md, 8px) var(--radius-md, 8px);
+    overflow: hidden;
+}
+
+.map-panel {
+    display: none;
+}
+
+.map-panel.panel-active {
+    display: block;
+}
+
+/* Leaflet map container */
+.leaflet-map {
+    width: 100%;
+    height: 420px;
+}
+
+
+/* ============================================================
+   5. LIGHTBOX GALLERY (Products page)
+============================================================ */
+
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightbox-overlay.lightbox-open {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 80vh;
     text-align: center;
-    margin-bottom: var(--space-xl);
     position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-md);
-    left: 50%;
-    transform: translateX(-50%);
 }
 
-.locations h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--colour-secondary);
-    border-radius: var(--radius-full);
+.lightbox-content img {
+    max-width: 90vw;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: var(--radius-md, 8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
-/* Two location cards side by side */
-.location-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding-bottom: var(--space-2xl);
+.lightbox-caption {
+    color: var(--colour-cream, #FBF5EC);
+    font-size: var(--text-md, 1.125rem);
+    margin-top: 0.75rem;
+    font-family: var(--font-heading, serif);
 }
 
-.location-card {
-    background-color: var(--colour-white);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--colour-border);
-    border-top: 4px solid var(--colour-primary);
-}
-
-.location-card h3 {
-    color: var(--colour-primary);
-    margin-bottom: var(--space-md);
-    font-size: var(--text-xl);
-}
-
-.location-card address {
-    font-style: normal;
-}
-
-.location-card address p {
-    font-size: var(--text-sm);
-    color: var(--colour-text-mid);
-    margin-bottom: var(--space-sm);
-}
-
-.location-card address a {
-    color: var(--colour-primary);
-}
-
-.location-card address a:hover {
-    color: var(--colour-primary-dark);
-}
-
-/* Map container - placeholder div for Leaflet.js map */
-.map-container {
-    background-color: var(--colour-cream-dark);
-    border: 1px solid var(--colour-border);
-    border-radius: var(--radius-lg);
-    min-height: 350px;
+.lightbox-close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: background var(--transition-fast, 150ms ease), border-color var(--transition-fast, 150ms ease);
+    z-index: 9001;
+    line-height: 1;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+    background: var(--colour-primary, #8B4513);
+    border-color: var(--colour-primary, #8B4513);
+    outline: none;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-radius: var(--radius-md, 8px);
+    transition: background var(--transition-fast, 150ms ease);
+    z-index: 9001;
+}
+
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover,
+.lightbox-prev:focus-visible,
+.lightbox-next:focus-visible {
+    background: var(--colour-primary, #8B4513);
+    outline: none;
+}
+
+
+/* ============================================================
+   6. PRODUCT SEARCH
+============================================================ */
+
+.product-search-section {
+    max-width: var(--max-width, 1200px);
+    margin: 1.5rem auto;
+    padding: 0 var(--container-pad, 1.5rem);
+}
+
+.search-wrap {
     position: relative;
-    margin: 0 var(--space-2xl) var(--space-2xl);
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 600px;
 }
 
-/* Placeholder text inside the map container */
-.map-container p {
-    color: var(--colour-text-light);
+.search-wrap input[type="search"] {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 3rem;
+    border: 2px solid var(--colour-border, #E0C9A6);
+    border-radius: var(--radius-full, 50px);
+    font-family: var(--font-body, sans-serif);
+    font-size: var(--text-base, 1rem);
+    background: var(--colour-white, #FFFFFF);
+    color: var(--colour-text-dark, #2C1810);
+    transition: border-color var(--transition-fast, 150ms ease), box-shadow var(--transition-fast, 150ms ease);
+}
+
+.search-wrap input[type="search"]:focus {
+    border-color: var(--colour-primary, #8B4513);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.no-results-msg {
+    margin-top: 1rem;
+    color: var(--colour-error, #C0392B);
+    font-weight: 600;
+    font-size: var(--text-md, 1.125rem);
+}
+
+
+/* ============================================================
+   7. LOAD MORE SECTION
+============================================================ */
+
+.load-more-section {
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto 3rem;
+    padding: 0 var(--container-pad, 1.5rem);
+}
+
+.load-more-wrap {
     text-align: center;
-    padding: var(--space-xl);
+    margin-top: 2rem;
 }
 
-/* Social media links in contact sidebar */
-.social-links {
+#loadMoreBtn {
+    padding: 0.85rem 2.5rem;
+    font-size: var(--text-base, 1rem);
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: var(--radius-full, 50px);
+    border: 2px solid var(--colour-primary, #8B4513);
+    background: transparent;
+    color: var(--colour-primary, #8B4513);
+    font-family: var(--font-body, sans-serif);
+    transition: background var(--transition-fast, 150ms ease), color var(--transition-fast, 150ms ease);
+}
+
+#loadMoreBtn:hover,
+#loadMoreBtn:focus-visible {
+    background: var(--colour-primary, #8B4513);
+    color: var(--colour-white, #FFFFFF);
+    outline: none;
+}
+
+
+/* ============================================================
+   8. FORM VALIDATION STATES
+============================================================ */
+
+/* Error state */
+.form-group.field-error input,
+.form-group.field-error select,
+.form-group.field-error textarea {
+    border-color: var(--colour-error, #C0392B);
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+}
+
+/* Success state */
+.form-group.field-success input,
+.form-group.field-success select,
+.form-group.field-success textarea {
+    border-color: var(--colour-success, #27AE60);
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.12);
+}
+
+/* Error message text */
+.error-msg {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--colour-error, #C0392B);
+    font-weight: 600;
+}
+
+/* Required star */
+.required-star {
+    color: var(--colour-error, #C0392B);
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+/* Form response card shown after successful submission */
+.form-response {
+    display: none;
+    padding: 2rem;
+    border-radius: var(--radius-md, 8px);
+    margin-top: 1.5rem;
+}
+
+.success-response {
+    background: #f0fff4;
+    border: 2px solid var(--colour-success, #27AE60);
+}
+
+.success-response h3 {
+    color: #1a7a3e;
+    margin-bottom: 1rem;
+}
+
+.success-response p {
+    color: var(--colour-text-dark, #2C1810);
+}
+
+/* Form note text */
+.form-note {
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--colour-text-light, #8D7260);
+    margin-bottom: 1rem;
+}
+
+/* Radio and checkbox label styling */
+.radio-label,
+.checkbox-label {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
+    align-items: flex-start;
+    gap: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    font-size: var(--text-base, 1rem);
+    color: var(--colour-text-mid, #5A3E32);
 }
 
-.social-links a {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-size: var(--text-sm);
-    color: var(--colour-text-mid);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
-    background-color: var(--colour-cream);
-    border: 1px solid var(--colour-border);
-    transition: background-color var(--transition-fast),
-                color var(--transition-fast),
-                border-color var(--transition-fast);
-}
-
-.social-links a:hover {
-    background-color: var(--colour-primary);
-    color: var(--colour-white);
-    border-color: var(--colour-primary);
+.radio-label input,
+.checkbox-label input {
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+    accent-color: var(--colour-primary, #8B4513);
+    width: 1rem;
+    height: 1rem;
 }
 
 
 /* ============================================================
-   20. PSEUDO-CLASS INTERACTIVE STATES
-   :hover, :focus, :active, :visited applied to interactive
-   elements across the site for enhanced UX.
-   ============================================================ */
+   9. LOCATIONS GRID (Contact page)
+============================================================ */
 
-/* Active state on buttons - press down effect */
-.btn-primary:active,
-.form-submit:active {
-    transform: translateY(1px);
-    box-shadow: none;
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto 2rem;
+    padding: 0 var(--container-pad, 1.5rem);
 }
 
-/* Visited links get a slightly muted colour to show they've been visited */
-main a:visited:not(.btn-primary):not(.btn-secondary):not(.btn-outline) {
-    color: var(--colour-primary-light);
-}
+@media (max-width: 768px) {
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
 
-/* Input fields get a coloured border when active (being typed in) */
-input:not([type="radio"]):not([type="checkbox"]):active,
-textarea:active,
-select:active {
-    border-color: var(--colour-primary-dark);
-}
+    .lightbox-prev { left: 0.25rem; }
+    .lightbox-next { right: 0.25rem; }
 
-/* Navigation links - :focus state for keyboard accessibility */
-nav a:focus {
-    color: var(--colour-primary);
-    outline: 2px dashed var(--colour-primary);
-    outline-offset: 4px;
-    border-radius: var(--radius-sm);
-}
-
-/* Product cards - :focus-within highlights the whole card
-   when any child element receives focus */
-.product-card:focus-within {
-    outline: 2px solid var(--colour-primary);
-    outline-offset: 2px;
+    .accordion-header h2 {
+        font-size: var(--text-lg, 1.25rem);
+    }
 }
 
 
 /* ============================================================
-   21. RESPONSIVE DESIGN - BREAKPOINTS
-   Three breakpoints: tablet (1024px), small tablet (768px),
-   and mobile (480px). Using min-width for mobile-first approach.
-   ============================================================ */
-
-/* -----------------------------------------------
-   TABLET BREAKPOINT - max-width: 1024px
-   Adjusts multi-column layouts for mid-size screens.
------------------------------------------------ */
-@media screen and (max-width: 1024px) {
-
-    /* Adjust heading sizes slightly on tablet */
-    h1 { font-size: var(--text-2xl); }
-    h2 { font-size: var(--text-xl); }
-
-    /* Header - reduce horizontal padding */
-    header {
-        padding: var(--space-md) var(--space-lg);
-    }
-
-    /* Nav links - reduce gap */
-    nav ul {
-        gap: var(--space-md);
-    }
-
-    nav a {
-        font-size: var(--text-xs);
-    }
-
-    /* Hero text - smaller on tablet */
-    .hero-text h1 {
-        font-size: var(--text-2xl);
-    }
-
-    .hero-text p {
-        font-size: var(--text-base);
-    }
-
-    /* Features - 2 columns instead of 4 on tablet */
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Products - 2 columns instead of 3 */
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .product-category .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Team - 2 columns instead of 4 */
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Mission/vision - keep 3 columns but smaller padding */
-    .mission-grid {
-        gap: var(--space-lg);
-    }
-
-    /* Footer - 2 columns */
-    footer {
-        grid-template-columns: 1fr 1fr;
-        padding: var(--space-2xl) var(--space-lg) var(--space-lg);
-    }
-
-    /* Enquiry / Contact page - single column */
-    .enquiry-section,
-    .contact-section {
-        grid-template-columns: 1fr;
-    }
-
-    /* Our story - stack vertically */
-    .our-story {
-        grid-template-columns: 1fr;
-    }
-
-    /* Location cards - stack vertically */
-    .location-cards {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-/* -----------------------------------------------
-   SMALL TABLET / LARGE MOBILE - max-width: 768px
-   More significant layout changes for smaller screens.
------------------------------------------------ */
-@media screen and (max-width: 768px) {
-
-    /* Root font sizes scale down for smaller screens */
-    :root {
-        --text-3xl: 2rem;
-        --text-4xl: 2.25rem;
-        --text-2xl: 1.75rem;
-        --space-4xl: 3rem;
-    }
-
-    /* ---- Header and Navigation ---- */
-    header {
-        position: relative;  /* no longer sticky on mobile to save space */
-        flex-wrap: wrap;
-        padding: var(--space-md);
-    }
-
-    /* Show the hamburger menu button */
-    .nav-toggle {
-        display: flex;
-        order: 3;
-    }
-
-    /* Navigation becomes a vertical dropdown menu on mobile */
-    nav {
-        order: 4;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height var(--transition-slow);
-    }
-
-    /* When menu is open (class added by JS) */
-    nav.nav-open {
-        max-height: 400px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: var(--space-md) 0;
-        border-top: 1px solid var(--colour-border);
-    }
-
-    nav ul li {
-        width: 100%;
-    }
-
-    nav a {
-        display: block;
-        padding: var(--space-md) 0;
-        font-size: var(--text-base);
-        border-bottom: 1px solid var(--colour-border);
-    }
-
-    nav a::after {
-        display: none; /* remove animated underline on mobile */
-    }
-
-    /* ---- Hero ---- */
-    .hero {
-        min-height: 60vh;
-    }
-
-    .hero-text {
-        padding: var(--space-lg);
-    }
-
-    .hero-text h1 {
-        font-size: var(--text-2xl);
-    }
-
-    .hero-text p {
-        font-size: var(--text-base);
-        margin-bottom: var(--space-xl);
-    }
-
-    .hero-text > a:first-of-type,
-    .hero-text > a:last-of-type {
-        padding: 0.75rem 1.5rem;
-        font-size: var(--text-base);
-    }
-
-    /* ---- Page Banner ---- */
-    .page-banner {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    .page-banner h1 {
-        font-size: var(--text-2xl);
-    }
-
-    /* ---- Features - single column on mobile ---- */
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Apply single column to direct article children of .features */
-    .features {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    /* ---- Products - single column ---- */
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .popular-products {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    .product-category .product-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .products-page {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    /* ---- Testimonials - vertical stack ---- */
-    .testimonials {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    .testimonials blockquote {
-        min-width: 100%;
-    }
-
-    /* ---- Mission grid - single column ---- */
-    .mission-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .mission-vision {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    /* ---- Team - 2 columns ---- */
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .team {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    /* ---- Footer - single column ---- */
-    footer {
-        grid-template-columns: 1fr;
-        padding: var(--space-2xl) var(--space-lg) var(--space-lg);
-        gap: var(--space-xl);
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    /* ---- Enquiry / Contact ---- */
-    .enquiry-section,
-    .contact-section {
-        grid-template-columns: 1fr;
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    form {
-        padding: var(--space-lg);
-    }
-
-    fieldset {
-        padding: var(--space-lg);
-    }
-
-    /* ---- Our Story ---- */
-    .our-story {
-        grid-template-columns: 1fr;
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    /* ---- Location cards ---- */
-    .location-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .locations {
-        padding: var(--space-lg) var(--space-lg) 0;
-    }
-
-    .map-container {
-        min-height: 260px;
-        margin: 0 var(--space-lg) var(--space-lg);
-    }
-
-}
-
-/* -----------------------------------------------
-   MOBILE BREAKPOINT - max-width: 480px
-   Fine-tuning for small phones.
------------------------------------------------ */
-@media screen and (max-width: 480px) {
-
-    :root {
-        --text-3xl: 1.75rem;
-        --text-2xl: 1.5rem;
-        --text-xl:  1.25rem;
-        --container-pad: 1rem;
-    }
-
-    /* ---- Logo text - shorter on very small screens ---- */
-    .logo span {
-        font-size: var(--text-base);
-    }
-
-    .logo img {
-        width: 36px;
-        height: 36px;
-    }
-
-    /* ---- Hero ---- */
-    .hero {
-        min-height: 50vh;
-    }
-
-    .hero-text h1 {
-        font-size: var(--text-2xl);
-    }
-
-    /* Hero buttons stack vertically on mobile */
-    .hero-text > a:first-of-type,
-    .hero-text > a:last-of-type {
-        display: block;
-        width: 100%;
-        margin-bottom: var(--space-sm);
-    }
-
-    /* ---- Team - single column on very small screens ---- */
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* ---- CTA section ---- */
-    .cta {
-        padding: var(--space-2xl) var(--space-lg);
-    }
-
-    .cta a {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* ---- Form submit button - full width on mobile ---- */
-    .form-submit {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* ---- Page banner ---- */
-    .page-banner h1 {
-        font-size: var(--text-xl);
-    }
-
-    .page-banner p {
-        font-size: var(--text-base);
-    }
-
-    /* ---- Images in products and cards ---- */
-    .product-card img,
-    .product-category .product-card img {
-        height: 160px;
-    }
-
-    /* ---- Popular products "view all" button ---- */
-    .popular-products > a {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-}
-
-/* ============================================================
-   22. PRINT STYLES
-   Basic print stylesheet to ensure the site prints cleanly.
-   ============================================================ */
+   10. PRINT STYLES ADDITIONS
+============================================================ */
 
 @media print {
-    header,
-    footer,
-    nav,
-    .cta,
-    .hero,
-    .map-container {
-        display: none;
-    }
+    .lightbox-overlay,
+    .accordion-icon,
+    #loadMoreBtn,
+    .map-tabs,
+    .map-panels,
+    .product-search-section,
+    .breadcrumb { display: none !important; }
 
-    body {
-        font-size: 12pt;
-        color: #000;
-        background: #fff;
-    }
-
-    h1, h2, h3 {
-        color: #000;
-    }
-
-    a {
-        color: #000;
-        text-decoration: underline;
+    .accordion-body {
+        max-height: none !important;
+        padding: 1rem 0 !important;
     }
 }
-}
-/* css/style.css - will be completed in Part 2 */
