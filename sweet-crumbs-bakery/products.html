@@ -2,302 +2,250 @@
 <html lang="en">
 <head>
     <!-- Meta tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Products | Sweet Crumbs Bakery - Breads, Pastries & Cakes</title>
-    <meta name="description" content="Browse our full range of artisan breads, fresh pastries, and custom celebration cakes. Order online for delivery across Johannesburg.">
-    
-    <link rel="stylesheet" href="css/style.css">
+    cat > /home/claude/part3/products.html << 'EOF'
+<!DOCTYPE html>
+<!--
+    Sweet Crumbs Bakery - Products Page
+    File: products.html  |  Student: Lesego Siziba  |  ST10515388  |  WEDE5020
+    Part 3 - Search & Filter + Lightbox gallery added
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products | Sweet Crumbs Bakery – Artisan Bread, Pastries &amp; Custom Cakes Johannesburg</title>
+  <meta name="description" content="Browse handcrafted artisan breads, pastries and custom celebration cakes from Sweet Crumbs Bakery in Johannesburg. Sourdough, croissants, cheesecakes and more – baked fresh daily."/>
+  <meta name="keywords" content="artisan bread Johannesburg, fresh pastries, custom cakes, gluten free bakery, sourdough, croissants, pain au chocolat, cheesecake Johannesburg, Sweet Crumbs products"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://sweetcrumbs.co.za/products.html"/>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-    <!-- Header with navigation -->
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Sweet Crumbs Bakery logo featuring a stylised wheat sheaf and rolling pin" width="150" height="60">
-            </a>
-            <span class="brand-name">Sweet Crumbs Bakery</span>
-        </div>
-        
-        <nav aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html" class="active">Products</a></li>
-                <li><a href="enquiry.html">Order Enquiry</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <!-- Page Banner -->
-        <section class="page-banner">
-            <h1>Our Products</h1>
-            <p>Handcrafted breads, pastries, and cakes made fresh daily</p>
-        </section>
+<header>
+  <div class="logo"><a href="index.html">
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="22" cy="22" r="22" fill="#8B4513"/>
+      <text x="22" y="30" font-size="22" text-anchor="middle" fill="#FBF5EC" font-family="Georgia,serif" font-weight="bold">S</text>
+    </svg>
+    <span>Sweet Crumbs Bakery</span>
+  </a></div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="mainNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="enquiry.html">Enquiry</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <!-- 
-            PRODUCT FILTER BUTTONS
-            Allows users to jump to specific categories.
-            Functionality will be enhanced with JavaScript in Part 3.
-        -->
-        <section class="product-filters">
-            <h2 class="visually-hidden">Filter Products by Category</h2>
-            <div class="filter-buttons">
-                <a href="#breads" class="filter-btn active">Breads</a>
-                <a href="#pastries" class="filter-btn">Pastries</a>
-                <a href="#cakes" class="filter-btn">Cakes</a>
-            </div>
-        </section>
+<div class="page-banner">
+  <h1>Our Products</h1>
+  <p>Everything is handcrafted using premium ingredients and baked fresh every single day.</p>
+</div>
 
-        <!-- 
-            BREADS CATEGORY
-            Contains 3 bread products with full details.
-            Each product card includes image, name, description, details list, and price.
-        -->
-        <section class="product-category" id="breads">
-            <h2>Artisan Breads</h2>
-            <p class="category-intro">Our breads are made using traditional slow-fermentation methods. No preservatives, no shortcuts—just flour, water, salt, and time.</p>
-            
-            <div class="products-grid">
-                <!-- Bread 1: Signature Sourdough -->
-                <article class="product-card">
-                    <img src="images/sourdough.jpg" alt="Round rustic sourdough loaf with golden crust and flour dusting, showing the natural scoring pattern on top" width="300" height="250" loading="lazy">
-                    <h3>Signature Sourdough</h3>
-                    <p>Our flagship product. A round boule with a crackling crust and open, tangy crumb. Made with our 9-year-old starter, "Stella".</p>
-                    <ul class="product-details">
-                        <li><strong>Weight:</strong> 800g</li>
-                        <li><strong>Ingredients:</strong> Wheat flour, water, salt, sourdough starter</li>
-                        <li><strong>Fermentation:</strong> 24-hour cold ferment</li>
-                        <li><strong>Best for:</strong> Toast, sandwiches, cheese boards</li>
-                    </ul>
-                    <p class="price">R65</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
+<main>
+  <!-- SEARCH & FILTER BAR (Dynamic Content – Part 3 requirement) -->
+  <!-- JS in main.js reads the search input and filter buttons to show/hide cards -->
+  <div class="search-filter-bar" style="margin:2rem auto;max-width:900px;">
+    <div class="search-input-wrap">
+      <input type="text" id="productSearch" placeholder="Search products..." aria-label="Search products"/>
+    </div>
+    <div class="filter-buttons" role="group" aria-label="Filter by category">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="bread">Breads</button>
+      <button class="filter-btn" data-filter="pastry">Pastries</button>
+      <button class="filter-btn" data-filter="cake">Cakes</button>
+      <button class="filter-btn" data-filter="gluten-free">Gluten-Free</button>
+    </div>
+  </div>
+  <p id="noResults" style="text-align:center;padding:2rem;color:#8D7260;display:none">No products match your search. Try a different term or filter.</p>
 
-                <!-- Bread 2: Ciabatta -->
-                <article class="product-card">
-                    <img src="images/ciabatta.jpg" alt="Oblong ciabatta loaf with rustic flour coating and characteristic large air holes visible where sliced" width="300" height="250" loading="lazy">
-                    <h3>Italian Ciabatta</h3>
-                    <p>A classic Italian slipper bread with an incredibly open crumb and thin, crisp crust. Perfect for paninis and bruschetta.</p>
-                    <ul class="product-details">
-                        <li><strong>Weight:</strong> 450g</li>
-                        <li><strong>Ingredients:</strong> Wheat flour, water, olive oil, yeast, salt</li>
-                        <li><strong>Fermentation:</strong> 18-hour poolish method</li>
-                        <li><strong>Best for:</strong> Paninis, olive oil dipping, bruschetta</li>
-                    </ul>
-                    <p class="price">R45</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
+  <div class="products-page" style="max-width:1100px;margin:0 auto;padding:0 1.5rem 3rem;">
 
-                <!-- Bread 3: Gluten-Free Loaf -->
-                <article class="product-card">
-                    <img src="images/gf-loaf.jpg" alt="Sliced gluten-free sandwich loaf showing even crumb structure, displayed on a wooden cutting board with seeds scattered around" width="300" height="250" loading="lazy">
-                    <h3>Gluten-Free Sandwich Loaf</h3>
-                    <p>A soft, sliceable loaf for those avoiding gluten. Made in our dedicated gluten-free section to prevent cross-contamination.</p>
-                    <ul class="product-details">
-                        <li><strong>Weight:</strong> 600g</li>
-                        <li><strong>Ingredients:</strong> Rice flour, tapioca starch, psyllium husk, seeds, yeast, salt</li>
-                        <li><strong>Certifications:</strong> Certified gluten-free kitchen</li>
-                        <li><strong>Best for:</strong> Sandwiches, toast, everyday eating</li>
-                    </ul>
-                    <p class="price">R75</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
-            </div>
-        </section>
+    <!-- BREADS -->
+    <section class="product-category" style="margin-bottom:3rem;">
+      <h2>Artisan Breads</h2>
+      <p>All our breads are made using traditional methods and slow fermentation for maximum flavour.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;">
 
-        <!-- 
-            PASTRIES CATEGORY
-            Contains 3 pastry products.
-        -->
-        <section class="product-category" id="pastries">
-            <h2>Fresh Pastries</h2>
-            <p class="category-intro">Buttery, flaky, and made fresh every morning. Our pastries are best enjoyed warm—arrive early for the best selection!</p>
-            
-            <div class="products-grid">
-                <!-- Pastry 1: Croissant -->
-                <article class="product-card">
-                    <img src="images/croissant.jpg" alt="Golden butter croissant with flaky layers visible, photographed on a marble surface with morning light" width="300" height="250" loading="lazy">
-                    <h3>Classic Butter Croissant</h3>
-                    <p>81 layers of buttery, laminated perfection. Made with imported French butter for that authentic flavour and texture.</p>
-                    <ul class="product-details">
-                        <li><strong>Butter content:</strong> 45%</li>
-                        <li><strong>Ingredients:</strong> Wheat flour, French butter, milk, yeast, sugar, salt</li>
-                        <li><strong>Bake time:</strong> Fresh from 6:30am daily</li>
-                        <li><strong>Best enjoyed:</strong> Warm, with coffee</li>
-                    </ul>
-                    <p class="price">R35</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
+        <article class="product-card reveal" data-category="bread">
+          <!-- Clicking the image triggers the lightbox (JS handles this) -->
+          <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80"
+               alt="Golden brown sourdough loaf with deeply scored crust on a wooden board" loading="lazy"/>
+          <h3>Classic Sourdough Loaf</h3>
+          <p>Slow-fermented for 72 hours for a tangy flavour and crackling crust. Available in white or whole wheat.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Weight: 800g</li><li>Allergens: Gluten, Wheat</li><li>Available daily from 06:00</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R65.00</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Order Now</a>
+        </article>
 
-                <!-- Pastry 2: Pain au Chocolat -->
-                <article class="product-card">
-                    <img src="images/pain-au-choc.jpg" alt="Pain au chocolat sliced in half showing two dark chocolate batons surrounded by golden laminated pastry layers" width="300" height="250" loading="lazy">
-                    <h3>Pain au Chocolat</h3>
-                    <p>The same buttery croissant dough wrapped around two batons of premium Belgian dark chocolate. A breakfast indulgence.</p>
-                    <ul class="product-details">
-                        <li><strong>Chocolate:</strong> 70% Belgian dark chocolate</li>
-                        <li><strong>Ingredients:</strong> Wheat flour, butter, chocolate, milk, yeast, sugar, salt</li>
-                        <li><strong>Bake time:</strong> Fresh from 6:30am daily</li>
-                        <li><strong>Best enjoyed:</strong> Slightly warm so chocolate is molten</li>
-                    </ul>
-                    <p class="price">R42</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
+        <article class="product-card reveal" data-category="bread">
+          <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc7b?w=600&q=80"
+               alt="Two rustic ciabatta loaves lightly dusted with flour on a linen cloth" loading="lazy"/>
+          <h3>Italian Ciabatta</h3>
+          <p>Light and airy with a crispy crust. Perfect for bruschetta, sandwiches or dipped in good olive oil.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Weight: 500g</li><li>Allergens: Gluten, Wheat</li><li>Mon–Sat only</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R45.00</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Order Now</a>
+        </article>
 
-                <!-- Pastry 3: Danish -->
-                <article class="product-card">
-                    <img src="images/danish.jpg" alt="Fruit Danish with swirled pastry, vanilla custard center, and glazed apricot topping, dusted with icing sugar" width="300" height="250" loading="lazy">
-                    <h3>Fruit Danish</h3>
-                    <p>A twisted pastry with silky vanilla custard and seasonal fruit. Topped with a light apricot glaze and icing sugar dusting.</p>
-                    <ul class="product-details">
-                        <li><strong>Fruit options:</strong> Apple, berry, apricot (seasonal)</li>
-                        <li><strong>Ingredients:</strong> Wheat flour, butter, custard, seasonal fruit, glaze</li>
-                        <li><strong>Size:</strong> Individual serving</li>
-                        <li><strong>Best enjoyed:</strong> Room temperature or slightly warmed</li>
-                    </ul>
-                    <p class="price">R38</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
-            </div>
-        </section>
+        <article class="product-card reveal" data-category="bread gluten-free">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80"
+               alt="Sliced gluten-free seeded loaf showing a moist crumb packed with sunflower and pumpkin seeds" loading="lazy"/>
+          <h3>Gluten-Free Seeded Loaf</h3>
+          <p>A hearty loaf packed with sunflower, pumpkin and sesame seeds. Made in a dedicated gluten-free kitchen area.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Weight: 700g</li><li>No Gluten</li><li>Pre-order: 48 hours notice</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R80.00</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Pre-Order</a>
+        </article>
 
-        <!-- 
-            CAKES CATEGORY
-            Contains 3 cake products.
-            Custom cakes link to the enquiry form.
-        -->
-        <section class="product-category" id="cakes">
-            <h2>Celebration Cakes</h2>
-            <p class="category-intro">From birthdays to weddings, our pastry chef Sipho creates stunning custom cakes. Ready-made options also available for walk-in customers.</p>
-            
-            <div class="products-grid">
-                <!-- Cake 1: Chocolate Layer Cake -->
-                <article class="product-card">
-                    <img src="images/choc-cake.jpg" alt="Triple-layer chocolate cake with glossy dark chocolate ganache dripping down the sides, decorated with chocolate curls" width="300" height="250" loading="lazy">
-                    <h3>Belgian Chocolate Layer Cake</h3>
-                    <p>Three layers of rich chocolate sponge filled with chocolate ganache and covered in a glossy mirror glaze. Pure decadence.</p>
-                    <ul class="product-details">
-                        <li><strong>Serves:</strong> 12-16 people</li>
-                        <li><strong>Size:</strong> 24cm round</li>
-                        <li><strong>Ingredients:</strong> Belgian chocolate, butter, eggs, flour, cream</li>
-                        <li><strong>Notice required:</strong> 24 hours for ready-made, 3 days for custom</li>
-                    </ul>
-                    <p class="price">R650</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
+      </div>
+    </section>
 
-                <!-- Cake 2: Cheesecake -->
-                <article class="product-card">
-                    <img src="images/cheesecake.jpg" alt="New York style cheesecake with a golden biscuit base and creamy white top, one slice removed to show texture" width="300" height="250" loading="lazy">
-                    <h3>New York Cheesecake</h3>
-                    <p>Dense, creamy, and perfectly tangy. A classic New York-style cheesecake on a buttery digestive biscuit base.</p>
-                    <ul class="product-details">
-                        <li><strong>Serves:</strong> 10-12 people</li>
-                        <li><strong>Size:</strong> 22cm round</li>
-                        <li><strong>Ingredients:</strong> Cream cheese, eggs, cream, vanilla, digestive biscuits</li>
-                        <li><strong>Topping options:</strong> Plain, berry compote, salted caramel</li>
-                    </ul>
-                    <p class="price">R550</p>
-                    <a href="enquiry.html" class="btn btn-small">Order Now</a>
-                </article>
+    <!-- PASTRIES -->
+    <section class="product-category" style="margin-bottom:3rem;">
+      <h2>Pastries and Viennoiserie</h2>
+      <p>Our pastries are made using the traditional lamination method. Each one takes hours to prepare properly.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;">
 
-                <!-- Cake 3: Custom Celebration Cake -->
-                <article class="product-card">
-                    <img src="images/cake.jpg" alt="Elegant three-tiered wedding cake in white fondant with cascading fresh roses in blush pink and gold leaf accents" width="300" height="250" loading="lazy">
-                    <h3>Custom Celebration Cake</h3>
-                    <p>Your dream cake, designed and created specifically for you. From children's character cakes to elegant wedding centrepieces.</p>
-                    <ul class="product-details">
-                        <li><strong>Serves:</strong> Custom (10-200 people)</li>
-                        <li><strong>Flavours:</strong> Vanilla, chocolate, red velvet, carrot, lemon (and more)</li>
-                        <li><strong>Design:</strong> Fully customisable to your brief</li>
-                        <li><strong>Notice required:</strong> Minimum 1 week, 2 weeks for wedding cakes</li>
-                    </ul>
-                    <p class="price">From R450</p>
-                    <a href="enquiry.html" class="btn btn-primary">Request a Quote</a>
-                </article>
-            </div>
-        </section>
+        <article class="product-card reveal" data-category="pastry">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80"
+               alt="Freshly baked flaky golden butter croissants stacked on a white ceramic plate" loading="lazy"/>
+          <h3>Butter Croissants</h3>
+          <p>Made the traditional French way using 27 layers of pure French butter pastry. Best enjoyed warm.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Sold individually or in packs of 4</li><li>Allergens: Gluten, Dairy, Eggs</li><li>Best before 11:00</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R22.00 / R80.00 for 4</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Order Now</a>
+        </article>
 
-        <!-- Additional Information aside -->
-        <aside class="products-info">
-            <h2>Ordering Information</h2>
-            <ul>
-                <li><strong>In-store:</strong> Visit Melville or Sandton City for immediate purchase</li>
-                <li><strong>Pre-order:</strong> Order via our enquiry form for collection or delivery</li>
-                <li><strong>Delivery:</strong> Available across Johannesburg (R50-R120 depending on area)</li>
-                <li><strong>Custom orders:</strong> Minimum 3 days notice for custom cakes</li>
-            </ul>
-            <p>Have questions about ingredients or allergens? <a href="contact.html">Contact us</a> and we'll be happy to help.</p>
-        </aside>
+        <article class="product-card reveal" data-category="pastry">
+          <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=600&q=80"
+               alt="Pain au chocolat pastry with visible melted dark chocolate centre on baking paper" loading="lazy"/>
+          <h3>Pain au Chocolat</h3>
+          <p>Buttery croissant dough wrapped around two thick batons of rich Belgian dark chocolate.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Allergens: Gluten, Dairy, Eggs, Soy</li><li>Available daily until sold out</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R26.00</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Order Now</a>
+        </article>
 
-        <!-- Call to Action -->
-        <section class="cta-banner">
-            <h2>Ready to Place an Order?</h2>
-            <p>Fill out our enquiry form and we'll get back to you within 24 hours with pricing and availability.</p>
-            <a href="enquiry.html" class="btn btn-primary">Start Your Order</a>
-        </section>
-    </main>
+        <article class="product-card reveal" data-category="pastry">
+          <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=80"
+               alt="Swirled cinnamon Danish pastry with golden glaze and dusting of icing sugar" loading="lazy"/>
+          <h3>Cinnamon Danish</h3>
+          <p>Warm swirled Danish pastry with cinnamon butter filling and a light vanilla glaze. Weekend favourite.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Allergens: Gluten, Dairy, Eggs</li><li>Available weekends only</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R28.00</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Order Now</a>
+        </article>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>Sweet Crumbs Bakery</h3>
-                <p>Artisan breads and pastries handcrafted with love in Johannesburg since 2015.</p>
-                <img src="images/logo-white.png" alt="Sweet Crumbs Bakery logo in white" width="120" height="48" loading="lazy">
-            </div>
+      </div>
+    </section>
 
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="enquiry.html">Order Enquiry</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <!-- CAKES -->
+    <section class="product-category" style="margin-bottom:3rem;">
+      <h2>Cakes and Desserts</h2>
+      <p>From custom celebration cakes to everyday slices, every cake is baked with equal care and attention.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;">
 
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <address>
-                    <p><strong>Melville:</strong> 27 7th Street, Melville, Johannesburg</p>
-                    <p><strong>Sandton:</strong> Shop 45, Sandton City Mall</p>
-                    <p>Phone: <a href="tel:+27114825500">011 482 5500</a></p>
-                    <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
-                </address>
-            </div>
+        <article class="product-card reveal" data-category="cake custom-cake">
+          <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80"
+               alt="Three layer custom celebration cake with smooth white buttercream and fresh strawberries" loading="lazy"/>
+          <h3>Custom Layer Cake</h3>
+          <p>Fully customisable 3-layer cake. Choose your sponge, filling, frosting and decoration theme.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Serves 12–16 people</li><li>Min. 72 hours notice</li><li>Flavours: Vanilla, Choc, Red Velvet, Lemon, Carrot</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">From R350.00</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Submit Custom Order</a>
+        </article>
 
-            <div class="footer-column">
-                <h3>Opening Hours</h3>
-                <ul class="hours-list">
-                    <li><strong>Monday - Friday:</strong> 6:30am - 6:00pm</li>
-                    <li><strong>Saturday:</strong> 7:00am - 4:00pm</li>
-                    <li><strong>Sunday:</strong> 8:00am - 2:00pm</li>
-                    <li><strong>Public Holidays:</strong> 8:00am - 12:00pm</li>
-                </ul>
-            </div>
-        </div>
+        <article class="product-card reveal" data-category="cake">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80"
+               alt="Dark chocolate fudge cake on a white cake stand with glossy ganache dripping down the sides" loading="lazy"/>
+          <h3>Chocolate Fudge Cake</h3>
+          <p>Dense, rich and incredibly moist dark chocolate cake with Belgian cocoa covered in glossy ganache.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Serves 10–12</li><li>GF version available</li><li>Available Fri–Sun</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R280.00 whole cake</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Order Now</a>
+        </article>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
-            <div class="social-links">
-                <a href="[facebook.com](https://facebook.com/sweetcrumbsjhb)" aria-label="Visit our Facebook page">
-                    <img src="images/icon-facebook.png" alt="" width="32" height="32">
-                </a>
-                <a href="[instagram.com](https://instagram.com/sweetcrumbsjhb)" aria-label="Visit our Instagram page">
-                    <img src="images/icon-instagram.png" alt="" width="32" height="32">
-                </a>
-                <a href="[wa.me](https://wa.me/27114825500)" aria-label="Contact us on WhatsApp">
-                    <img src="images/icon-whatsapp.png" alt="" width="32" height="32">
-                </a>
-            </div>
-        </div>
-    </footer>
+        <article class="product-card reveal" data-category="cake">
+          <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&q=80"
+               alt="New York style baked vanilla cheesecake on a biscuit base with blueberry compote topping" loading="lazy"/>
+          <h3>Baked New York Cheesecake</h3>
+          <p>Classic baked cheesecake on a buttery biscuit base. Creamy and smooth with seasonal berry compote.</p>
+          <ul style="padding:0 1rem 0.5rem;list-style:disc;font-size:0.85rem;color:#8D7260">
+            <li>Serves 8–10</li><li>Allergens: Dairy, Eggs, Gluten</li><li>Pre-order recommended</li>
+          </ul>
+          <p class="price" style="padding:0 1rem">R260.00</p>
+          <a href="enquiry.html" style="display:inline-block;margin:0.5rem 1rem 1rem;padding:0.5rem 1.25rem;background:#8B4513;color:#fff;border-radius:50px;font-size:0.85rem;font-weight:700">Order Now</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="products-cta">
+      <h2>Can't Find What You're Looking For?</h2>
+      <p>We love a challenge. Submit a custom order enquiry and we will bake something unique just for you.</p>
+      <a href="enquiry.html">Submit a Custom Enquiry</a>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div><h3>Sweet Crumbs Bakery</h3><p>Handcrafted baked goods made with love in Johannesburg since 2015.</p></div>
+  <div><h4>Quick Links</h4><ul>
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products</a></li><li><a href="enquiry.html">Enquiry</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul></div>
+  <div><h4>Contact Us</h4><address>
+    <p>12 Baker Street, Melville, Johannesburg, 2092</p>
+    <p>Phone: <a href="tel:+27115551234">+27 11 555 1234</a></p>
+    <p>Email: <a href="mailto:hello@sweetcrumbs.co.za">hello@sweetcrumbs.co.za</a></p>
+  </address></div>
+  <div><h4>Opening Hours</h4><ul>
+    <li>Mon–Fri: 06:00–18:00</li><li>Saturday: 07:00–15:00</li><li>Sunday: 08:00–13:00</li>
+  </ul></div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Sweet Crumbs Bakery. All rights reserved.</p>
+    <p>Designed by Lesego Siziba | ST10515388 | WEDE5020</p>
+  </div>
+</footer>
+
+<!-- Lightbox overlay – JS opens this when any product image is clicked -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Product image lightbox">
+  <button id="lightbox-close" aria-label="Close lightbox">&times;</button>
+  <button id="lightbox-prev" aria-label="Previous image">&#8592;</button>
+  <img id="lightbox-img" src="" alt=""/>
+  <p id="lightbox-caption"></p>
+  <button id="lightbox-next" aria-label="Next image">&#8594;</button>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
 
     <script src="js/main.js"></script>
 </body>
